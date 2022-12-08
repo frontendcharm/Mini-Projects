@@ -1,0 +1,32 @@
+body {
+  background: #17181c;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.div-container {
+  position: relative;
+  padding: 40px 60px;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 10000;
+}
+
+.div-container a {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  padding: 16px 28px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+}
+
+.div-container a:hover {
+  background: #fff;
+  color: #333;
+}

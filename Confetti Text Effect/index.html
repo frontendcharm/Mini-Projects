@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <span class="particletext confetti">Hooray!!!</span>
+    </div>
+
+    <script>
+        function initparticles() {
+            confetti();
+        }
+
+        function confetti() {
+            $.each($(".particletext.confetti"), function () {
+                var confetticount = ($(this).width() / 50) * 10;
+                for (var i = 0; i <= confetticount; i++) {
+                    $(this).append('<span class="particle c' + $.rnd(1, 2) + '" style="top:' + $.rnd(10, 50) + '%; left:' + $.rnd(0, 100) + '%;width:' + $.rnd(6, 8) + 'px; height:' + $.rnd(3, 4) + 'px;animation-delay: ' + ($.rnd(0, 30) / 10) + 's;"></span>');
+                }
+            });
+        }
+
+        jQuery.rnd = function (m, n) {
+            m = parseInt(m);
+            n = parseInt(n);
+            return Math.floor(Math.random() * (n - m + 1)) + m;
+        }
+
+        initparticles();
+    </script>
+</body>
+
+</html>

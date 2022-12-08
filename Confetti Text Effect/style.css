@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "bebas", sans-serif;
+    background-color: #000;
+  }
+  
+  .particletext {
+    text-align: center;
+    font-size: 48px;
+    position: relative;
+    color: #fff;
+  }
+  
+  .particletext.confetti > .particle {
+    opacity: 0;
+    position: absolute;
+    -webkit-animation: confetti 3s ease-in infinite;
+            animation: confetti 3s ease-in infinite;
+  }
+  
+  .particletext.confetti > .particle.c1 {
+    background-color: #4caf50;
+  }
+  
+  .particletext.confetti > .particle.c2 {
+    background-color: #9c27b0;
+  }
+  
+  @keyframes confetti {
+    0% {
+      opacity: 0;
+      transform: translateY(0%) rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+    }
+    35% {
+      transform: translateY(-800%) rotate(270deg);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(2000%) rotate(1440deg);
+    }
+  }

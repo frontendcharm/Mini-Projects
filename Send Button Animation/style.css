@@ -1,0 +1,114 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #000;
+  }
+  
+  .btn {
+    background: #49d75c;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    transition: all 0.25s ease;
+    position: relative;
+    width: 210px;
+    height: 60px;
+    overflow: hidden;
+  }
+  
+  .btn i {
+    font-size: 1.45rem;
+    position: absolute;
+    left: 0px;
+    pointer-events: none;
+    z-index: 10;
+    background: inherit;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+  }
+  
+  .btn .text {
+    width: 130px;
+    display: block;
+    position: relative;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    position: absolute;
+    left: 60px;
+  }
+  
+  .loading-animate {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+  
+  .loading-animate::after {
+    content: "";
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-left: 3px solid #fff;
+    animation: loading infinite 0.8s ease 0.05s;
+    position: absolute;
+  }
+  
+  .loading-animate::before {
+    content: "";
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-left: 3px solid #fff;
+    animation: loading infinite 0.8s linear;
+    position: absolute;
+    opacity: 0.6;
+  }
+  
+  .btn.loading {
+    width: 60px;
+  }
+  
+  .btn.loading i {
+    transform: rotate(-90deg);
+    padding-bottom: 4px;
+    padding-left: 3px;
+  }
+  
+  .btn.loading .text {
+    transform: translate(-140px);
+  }
+  
+  .btn.loading .loading-animate {
+    opacity: 1;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

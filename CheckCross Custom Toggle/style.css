@@ -1,0 +1,104 @@
+body {
+    background: #87aade;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  *:before,
+  *:after {
+    content: "";
+    position: absolute;
+  }
+  
+  .toggle {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input {
+    height: 40px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+  }
+  
+  label.toggle-item {
+    width: 7em;
+    background: #2e394d;
+    height: 3em;
+    display: inline-block;
+    border-radius: 50px;
+    margin: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+    transform-origin: 20% center;
+    cursor: pointer;
+  }
+  
+  label.toggle-item::before {
+    display: block;
+    transition: all 0.2s ease;
+    width: 2.3em;
+    height: 2.3em;
+    top: 0.25em;
+    left: 0.25em;
+    border-radius: 2em;
+    border: 2px solid #88cf8f;
+    transition: 0.3s ease;
+  }
+  
+  .toggle label::before {
+    content: none;
+  }
+  
+  .toggle .check {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    background: #8bc34a;
+    transition: 0.4s ease;
+    top: 4.5px;
+    left: 4.5px;
+  }
+  
+  .toggle .check::before,
+  .toggle .check::after {
+    height: 4px;
+    border-radius: 10px;
+    background: #fff;
+    transition: 0.4s ease;
+  }
+  
+  .toggle .check::before {
+    width: 25px;
+    transform: rotate(-45deg) translate(-6px, 20px);
+  }
+  
+  .toggle .check::after {
+    width: 10px;
+    transform: rotate(45deg) translate(20px, 11px);
+  }
+  
+  #checkcross:checked + label .check {
+    left: 68px;
+    transform: rotate(360deg);
+    background: #c34a4a;
+  }
+  
+  #checkcross:checked + label .check::before {
+    width: 27px;
+    transform: rotate(-45deg) translate(-8px, 18px);
+  }
+  
+  #checkcross:checked + label .check::after {
+    width: 27px;
+    transform: rotate(45deg) translate(18px, 8px);
+  }
