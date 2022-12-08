@@ -1,0 +1,85 @@
+body {
+    background: #17181c;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  
+  .blob-effect {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+  }
+  
+  .blob-effect span:nth-child(1) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #a9ff68;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: rotate-blob 5s linear infinite;
+  }
+  
+  .blob-effect:hover span:nth-child(1) {
+    background: #d76bb1;
+    border: none;
+  }
+  
+  .blob-effect span:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #a9ff68;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: rotate-blob 4s linear infinite;
+  }
+  
+  .blob-effect:hover span:nth-child(2) {
+    background: #f192d0;
+    border: none;
+  }
+  
+  .blob-effect span:nth-child(3) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #a9ff68;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: rotate-blob2 10s linear infinite;
+  }
+  
+  .blob-effect:hover span:nth-child(3) {
+    background: #f06ec294;
+    border: none;
+  }
+  
+  @keyframes rotate-blob {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotate-blob2 {
+    0% {
+      transform: rotate(360deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
