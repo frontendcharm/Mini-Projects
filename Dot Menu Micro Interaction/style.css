@@ -1,0 +1,73 @@
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: #121314;
+}
+
+input {
+    display: none;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    --length: 0;
+    --offset: -50;
+    stroke-dasharray: var(--length) var(--total-length);
+    stroke-dashoffset: var(--offset);
+    transition: all .8s cubic-bezier(.645, .045, .355, 1);
+}
+
+circle {
+    fill: #fff3;
+    opacity: 0;
+}
+
+label:hover circle {
+    opacity: 1;
+}
+
+.dots_menu {
+    background-color: #3f77e9;
+}
+
+.dots_menu input:checked+svg .line--1,
+.dots_menu input:checked+svg .line--3 {
+    --length: 22.627416998;
+    --offset: -94.1149185097;
+}
+
+.dots_menu input:checked+svg .line--2 {
+    --length: 0;
+    --offset: -50;
+}
+
+.dots_menu .line--1,
+.dots_menu .line--3 {
+    --total-length: 126.64183044433594;
+}
+
+.dots_menu .line--2 {
+    --total-length: 70;
+}
+
+.back input:checked+svg .line--1,
+.back input:checked+svg .line--3 {
+    --length: 8.602325267;
+}
