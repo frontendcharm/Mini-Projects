@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add-Remove Button Interaction</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <button class="add-remove-button">
+        <div></div>
+    </button>
+
+    <script>
+        document.querySelectorAll('.add-remove-button').forEach(button => {
+            button.addEventListener('click', e => {
+                if (button.classList.contains('inactive')) {
+                    button.classList.remove('active', 'inactive');
+                    button.classList.add('active');
+                } else {
+                    if (button.classList.contains('active')) {
+                        button.classList.add('inactive');
+                    }
+                }
+                if (!button.classList.contains('active')) {
+                    button.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+.add-remove-button {
+    --color: #fff;
+    --duration: 1s;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.add-remove-button:before,
+.add-remove-button:after,
+.add-remove-button div:before,
+.add-remove-button div:after {
+    content: "";
+    top: var(--t, 12px);
+    left: var(--l, 18px);
+    width: 4px;
+    height: 16px;
+    border-radius: 2px;
+    margin: -8px 0 0 -2px;
+    background: var(--color);
+    position: absolute;
+    transform: rotate(var(--r, 0));
+    -webkit-animation: var(--n, move) var(--duration) ease forwards;
+    animation: var(--n, move) var(--duration) ease forwards;
+    -webkit-animation-play-state: var(--p, paused);
+    animation-play-state: var(--p, paused);
+}
+
+.add-remove-button:after {
+    --d: -1;
+    --t: 24px;
+}
+
+.add-remove-button div {
+    --m: -1;
+    --r-a: 180deg;
+    --t: 18px;
+    --r: 90deg;
+    --x: 1px;
+    --y: 5px;
+}
+
+.add-remove-button div:before {
+    --l: 12px;
+}
+
+.add-remove-button div:after {
+    --d: -1;
+    --l: 24px;
+}
+
+.add-remove-button.active {
+    --p: running;
+}
+
+.add-remove-button.active.inactive {
+    --n: move-back;
+}
+
+@-webkit-keyframes move {
+    0% {
+        transform: rotate(var(--r, 0));
+    }
+
+    50% {
+        transform: rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
+    }
+
+    100% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: rotate(var(--r, 0));
+    }
+
+    50% {
+        transform: rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
+    }
+
+    100% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
+    }
+}
+
+@-webkit-keyframes move-back {
+    0% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + calc(var(--r-a, 0deg))));
+    }
+
+    50% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1) * .7), calc(var(--y, 1px) * var(--d, 1) * .7)) rotate(var(--r, 0));
+    }
+
+    100% {
+        transform: rotate(var(--r, 0));
+    }
+}
+
+@keyframes move-back {
+    0% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + calc(var(--r-a, 0deg))));
+    }
+
+    50% {
+        transform: translate(calc(var(--x, -5px) * var(--d, 1) * .7), calc(var(--y, 1px) * var(--d, 1) * .7)) rotate(var(--r, 0));
+    }
+
+    100% {
+        transform: rotate(var(--r, 0));
+    }
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Roboto", Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #275EFE;
+    font-family: "Roboto", Arial, sans-serif;
+}
