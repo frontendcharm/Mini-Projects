@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bubbly Button Animation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <button class="bubbly-button">Click me!</button>
+
+    <script>
+        var animateButton = function (e) {
+            e.preventDefault;
+            //reset animation
+            e.target.classList.remove("animate");
+
+            e.target.classList.add("animate");
+            setTimeout(function () {
+                e.target.classList.remove("animate");
+            }, 700);
+        };
+
+        var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+        for (var i = 0; i < bubblyButtons.length; i++) {
+            bubblyButtons[i].addEventListener("click", animateButton, false);
+        }
+
+    </script>
+</body>
+
+</html>
