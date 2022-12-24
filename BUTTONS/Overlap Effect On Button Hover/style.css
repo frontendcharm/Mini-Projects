@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #151515;
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    background-color: #ff4646;
+    color: #fff;
+
+    font-family: Arial;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: -1;
+    border-radius: 10rem;
+    transition: 0.3s ease all;
+    transform: scale(0, 1);
+    transform-origin: top right;
+    transition: transform 500ms cubic-bezier(0.86, 0, 0.07, 1);
+    transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.button:hover {
+    color: #151515;
+}
+
+.button:hover::after {
+    transform: scale(1, 1);
+    transform-origin: top left;
+}
