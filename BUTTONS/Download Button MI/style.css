@@ -1,0 +1,137 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    background: #1e1e24;
+    place-items: center;
+    font-family: sans-serif;
+}
+
+input {
+    display: none;
+}
+
+.button_inner {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin: auto;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04);
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    color: white;
+    text-align: center;
+    transition: all 0.3s, box-shadow 0.2s, transform 0.2s 0.2s;
+}
+
+.button_inner .button-text {
+    position: relative;
+    top: 6px;
+    opacity: 1;
+    left: -10px;
+    transition: left 0.4s 0.1s;
+}
+
+.button_inner .button-icon {
+    position: relative;
+    left: -19px;
+    top: 20px;
+    color: #00c4ff;
+    font-size: 25px;
+    opacity: 0;
+    transition: left 0.3s 0s, top 0.3s 0s, opacity 0.3s 0s;
+}
+
+.tick {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: scale(0);
+    margin: auto;
+}
+
+input:checked+label .button_inner {
+    background: transparent;
+    transform: rotate(90deg);
+    width: 100px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 0px 440px rgba(0, 0, 0, 0);
+    animation: finalbox 0.4s 4.42s cubic-bezier(0.39, 2.01, 0.27, 0.75) forwards;
+}
+
+input:checked+label .button_inner .button-text {
+    opacity: 0;
+    top: 20px;
+}
+
+input:checked+label .button-icon {
+    left: 14px;
+    opacity: 1;
+    top: 11px;
+    animation: down 1s 0.25s infinite, final 0.2s 4s forwards;
+}
+
+input:checked+label .tick {
+    position: absolute;
+    left: 2px;
+    right: 0;
+    transform: scale(0) rotate(-90deg);
+    color: #00c1fc;
+    top: 11px;
+    margin: auto;
+    font-size: 22px;
+    animation: tick 0.3s 4.7s forwards;
+}
+
+.button_inner:hover {
+    color: #2c3940;
+    background: white;
+    box-shadow: 0px 17px 18px -14px rgba(0, 0, 0, 0.08);
+}
+
+.button_inner:hover .button-text {
+    left: 0;
+    transition: left 0.4s;
+}
+
+.button_inner:hover .button-icon {
+    top: 12px;
+    opacity: 1;
+    transition: left 0.3s 0s, top 0.3s 0.1s, opacity 0.3s 0.1s;
+}
+
+@keyframes down {
+    from {
+        left: 10px;
+    }
+
+    to {
+        left: 57px;
+    }
+}
+
+@keyframes finalbox {
+    to {
+        width: 50px;
+    }
+}
+
+@keyframes tick {
+    to {
+        transform: scale(1) rotate(-90deg);
+    }
+}
+
+@keyframes final {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
