@@ -1,0 +1,75 @@
+body {
+    background-color: #121314;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+button {
+    outline: none;
+    padding: 1rem 2.5rem;
+    font-size: 2rem;
+    position: relative;
+    background: transparent;
+    color: #b8ff57;
+    text-transform: uppercase;
+    border: 3px solid #b8ff57;
+    cursor: pointer;
+    transition: all 0.7s;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+button:hover {
+    color: #222228;
+}
+
+button span {
+    transition: all 0.7s;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    background: #b8ff57;
+}
+
+button .first {
+    right: 100%;
+    top: 0;
+}
+
+button:hover .first {
+    top: 0;
+    right: 0;
+}
+
+button .second {
+    left: 25%;
+    top: -100%;
+}
+
+button:hover .second {
+    top: 0;
+    left: 50%;
+}
+
+button .third {
+    left: 50%;
+    top: 100%;
+}
+
+button:hover .third {
+    top: 0;
+    left: 25%;
+}
+
+button .fourth {
+    left: 100%;
+    top: 0;
+}
+
+button:hover .fourth {
+    top: 0;
+    left: 0;
+}
