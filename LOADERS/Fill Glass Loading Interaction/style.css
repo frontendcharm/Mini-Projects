@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.loader {
+    width: 32px;
+    height: 72px;
+    display: inline-block;
+    position: relative;
+    border: 2px solid #fff;
+    animation: fill 2s linear infinite alternate;
+    color: #20d0fc;
+    border-radius: 0 0 4px 4px;
+    transform: perspective(140px) rotateX(-45deg);
+}
+
+@keyframes fill {
+    0% {
+        box-shadow: 0 0 inset;
+    }
+
+    100% {
+        box-shadow: 0 -70px inset;
+    }
+}
