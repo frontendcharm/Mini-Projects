@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.loader {
+    width: 32px;
+    height: 90px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 50% 50% 0 0;
+    border-bottom: 10px solid #ff3d00;
+    background-color: #fff;
+    background-image: radial-gradient(ellipse at center,
+            #fff 34%,
+            #ff3d00 35%,
+            #ff3d00 54%,
+            #fff 55%),
+        linear-gradient(#ff3d00 10px, transparent 0);
+    background-size: 28px 28px;
+    background-position: center 20px, center 2px;
+    background-repeat: no-repeat;
+    animation: flying 1s linear infinite alternate;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 44px;
+    border-radius: 50%;
+    box-shadow: 0px 15px #ff3d00 inset;
+    top: 67px;
+}
+
+.loader::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 34px;
+    height: 34px;
+    top: 112%;
+    background: radial-gradient(ellipse at center,
+            #ffdf00 8%,
+            rgba(249, 62, 0, 0.6) 24%,
+            rgba(0, 0, 0, 0) 100%);
+    border-radius: 50% 50% 0;
+    background-repeat: no-repeat;
+    background-position: -44px -44px;
+    background-size: 100px 100px;
+    box-shadow: 4px 4px 12px 0px rgba(255, 61, 0, 0.5);
+    animation: fire 1s linear infinite alternate;
+}
+
+@keyframes flying {
+
+    0%,
+    30%,
+    70% {
+        transform: translateY(0px);
+    }
+
+    20%,
+    40%,
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fire {
+    0% {
+        box-shadow: 4px 4px 12px 2px rgba(255, 61, 0, 0.75);
+        width: 34px;
+        height: 34px;
+        background-position: -44px -44px;
+        background-size: 100px 100px;
+    }
+
+    100% {
+        box-shadow: 2px 2px 8px 0px rgba(255, 61, 0, 0.5);
+        width: 30px;
+        height: 28px;
+        background-position: -36px -36px;
+        background-size: 80px 80px;
+    }
+}
