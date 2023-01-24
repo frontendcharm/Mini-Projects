@@ -1,0 +1,56 @@
+body {
+    background-color: #161622;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.wave {
+    width: 6em;
+    height: 4em;
+}
+
+.wave .rect {
+    height: 100%;
+    width: 0.5em;
+    display: inline-block;
+    animation: wave-stretch-delay 1.2s infinite ease-in-out;
+}
+
+.wave .rect-1 {
+    background-color: #337ab7;
+    animation-delay: -1.2s;
+}
+
+.wave .rect-2 {
+    background-color: #33b75d;
+    animation-delay: -1.1s;
+}
+
+.wave .rect-3 {
+    background-color: #9db733;
+    animation-delay: -1s;
+}
+
+.wave .rect-4 {
+    background-color: #b7335d;
+    animation-delay: -0.9s;
+}
+
+.wave .rect-5 {
+    background-color: #d601af;
+    animation-delay: -0.8s;
+}
+
+@keyframes wave-stretch-delay {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1);
+    }
+}
