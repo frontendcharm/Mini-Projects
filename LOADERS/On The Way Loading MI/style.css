@@ -1,0 +1,98 @@
+body {
+    background: #151515;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+}
+
+.tree {
+    position: absolute;
+    height: 100px;
+    width: 35px;
+    bottom: 0;
+    background: url(tree.svg) no-repeat;
+    animation: tree 3s 0s linear infinite;
+}
+
+.truck,
+.wheels {
+    transition: all ease;
+    width: 85px;
+    margin-right: -60px;
+    bottom: 0px;
+    right: 50%;
+    position: absolute;
+    background: #eee;
+}
+
+.truck {
+    background: url(truck.svg) no-repeat;
+    background-size: contain;
+    height: 60px;
+    animation: truck 4s 0.08s ease infinite;
+}
+
+.truck::before {
+    content: " ";
+    position: absolute;
+    width: 25px;
+    box-shadow: -30px 28px 0 1.5px #fff, -35px 18px 0 1.5px #fff;
+    animation: wind 1.5s 0s ease infinite;
+}
+
+.wheels {
+    background: url(wheels.svg) no-repeat;
+    height: 15px;
+    margin-bottom: 0;
+    animation: truck 4s 0.001s ease infinite;
+}
+
+@keyframes tree {
+    0% {
+        transform: translate(1350px);
+    }
+
+    100% {
+        transform: translate(-50px);
+    }
+}
+
+@keyframes truck {
+    6% {
+        transform: translateY(0px);
+    }
+
+    7% {
+        transform: translateY(-6px);
+    }
+
+    9% {
+        transform: translateY(0px);
+    }
+
+    10% {
+        transform: translateY(-1px);
+    }
+
+    11% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes wind {
+    50% {
+        transform: translateY(3px);
+    }
+}
