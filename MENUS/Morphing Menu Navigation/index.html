@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Morphing Menu Navigation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <nav class="open">
+        <span class="close"></span>
+        <span>
+            <ul class="menu__list">
+                <li>
+                    <a href="#about" title="about">About</a>
+                </li>
+                <li>
+                    <a href="#skills" title="skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#jobs" title="jobs">Jobs</a>
+                </li>
+                <li>
+                    <a href="#contact" title="contact">Contact</a>
+                </li>
+            </ul>
+        </span>
+        <span class="close"></span>
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            $(document).delegate(".open", "click", function (event) {
+                $(this).addClass("opened");
+                event.stopPropagation();
+            });
+            $(document).delegate("body", "click", function (event) {
+                $(".open").removeClass("opened");
+            });
+            $(document).delegate(".close", "click", function (event) {
+                $(".open").removeClass("opened");
+                event.stopPropagation();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
