@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+body {
+    background: #333;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+.menu__container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+label {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 50px;
+    width: 65px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-delay: 0.7s;
+}
+
+#menu {
+    display: none;
+}
+
+#menu:checked~label {
+    transform: translateY(-100px);
+}
+
+.hamburger {
+    position: relative;
+    width: 55px;
+    height: 3px;
+    background: #fff;
+}
+
+.hamburger::after,
+.hamburger::before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 55px;
+    height: 3px;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.hamburger::after {
+    top: -10px;
+}
+
+.hamburger::before {
+    top: 10px;
+}
+
+#menu:checked~label .hamburger {
+    animation: rotateIt 0.5s ease forwards 1;
+    animation-delay: 0.6s;
+}
+
+@keyframes rotateIt {
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+#menu:checked~label .hamburger::before {
+    transform: translateY(-10px);
+    opacity: 0;
+    animation: moveIt 0.5s ease forwards 1;
+    animation-delay: 0.6s;
+}
+
+@keyframes moveIt {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(90deg) translateY(2px) translateX(-8px);
+        opacity: 1;
+        height: 3px;
+    }
+}
+
+#menu:checked~label .hamburger::after {
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+.menu__list {
+    position: absolute;
+    background: #fff;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 300px;
+    transition: 0.8s;
+    transition-delay: 0.7s;
+    overflow: hidden;
+    transform: translateY(300px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+}
+
+#menu:checked~.menu__list {
+    transform: translateY(0px);
+}
+
+.menu__item {
+    position: relative;
+    font-size: 40px;
+    margin: 0 60px;
+    cursor: pointer;
+}
+
+.menu__item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.move__item {
+    position: absolute;
+    height: 350px;
+    width: 350px;
+    background: #333;
+    border-top-right-radius: 400px;
+    border-bottom-right-radius: 125px;
+    top: -270px;
+    transition: 0.7s;
+    transition-delay: 0.1s;
+    transform: translateX(-250px) rotate(45deg);
+    animation: menuBorder 3s linear infinite;
+}
+
+@keyframes menuBorder {
+    50% {
+        border-bottom-left-radius: 300px;
+        border-top-right-radius: 0px;
+    }
+}
+
+.menu__item::after {
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+}
+
+.menu__item:nth-child(1)::after {
+    background: #def06c;
+}
+
+.menu__item:nth-child(2)::after {
+    background: #71c1d1;
+}
+
+.menu__item:nth-child(3)::after {
+    background: #dd7171;
+}
+
+.menu__item:nth-child(1):hover~.move__item {
+    transform: translate(-250px) rotate(45deg);
+}
+
+.menu__item:nth-child(2):hover~.move__item {
+    transform: translate(10px) rotate(45deg);
+}
+
+.menu__item:nth-child(3):hover~.move__item {
+    transform: translate(280px) rotate(45deg);
+}
