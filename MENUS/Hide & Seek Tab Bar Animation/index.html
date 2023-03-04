@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hide & Seek Tab Bar Animation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body class="d-flex flex-column">
+    <div class="container d-flex align-items-center justify-content-center">
+        <nav>
+            <ul>
+                <li class="align-items-center justify-content-center">
+                    <a onclick="addClass(0)" href="#" class="link d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="align-items-center justify-content-center">
+                    <a onclick="addClass(1)" href="#" class="link d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search</span>
+                    </a>
+                </li>
+
+                <li class="align-items-center justify-content-center">
+                    <a onclick="addClass(3)" href="#" class="link d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <script>
+        function addClass(elem) {
+            for (let i = 0; i < elem.length; i++) {
+                elem[i].addEventListener("click", function (e) {
+                    const current = this;
+                    for (let i = 0; i < elem.length; i++) {
+                        if (current !== elem[i]) {
+                            elem[i].classList.remove("isActive");
+                            elem[i].classList.add("notActive");
+                        } else {
+                            current.classList.add("isActive");
+                            current.classList.remove("notActive");
+                        }
+                    }
+                    e.preventDefault();
+                });
+            }
+        }
+        addClass(document.querySelectorAll(".link"));
+    </script>
+</body>
+
+</html>
