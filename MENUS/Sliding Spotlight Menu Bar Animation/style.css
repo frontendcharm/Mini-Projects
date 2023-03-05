@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #673ab7;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+}
+
+nav {
+    position: relative;
+    border-radius: 10px;
+    background: #000;
+    box-shadow: 0 6.7px 5.3px rgb(0 0 0 / 12%);
+    overflow: hidden;
+    color: #fff;
+}
+
+nav ul {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+nav ul li {
+    list-style: none;
+    padding: 28px;
+}
+
+nav ul li a {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+nav ul li a i {
+    opacity: 0.4;
+    transition: opacity 100ms ease;
+}
+
+nav ul li a.active i {
+    opacity: 1;
+}
+
+nav .spotLight {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 5px;
+    border-radius: 5px;
+    background: #fff;
+    transition: left 400ms ease;
+    z-index: 10;
+}
+
+nav .lightRay {
+    position: absolute;
+    left: -30%;
+    top: 5px;
+    width: 160%;
+    height: 80px;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.3) -50%,
+            rgba(255, 255, 255, 0) 90%);
+    clip-path: polygon(5% 100%, 25% 0px, 75% 0px, 95% 100%);
+    pointer-events: none;
+}

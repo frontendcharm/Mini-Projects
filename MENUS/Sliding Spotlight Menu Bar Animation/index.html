@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sliding Spotlight Menu Bar Animation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.lineicons.com/2.0/LineIcons.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a class="active"><i class="lni lni-home"></i></a></li>
+            <li><a><i class="lni lni-bookmark"></i></a></li>
+            <li><a><i class="lni lni-circle-plus"></i></a></li>
+            <li><a><i class="lni lni-user"></i></a></li>
+            <li><a><i class="lni lni-cart"></i></a></li>
+        </ul>
+
+        <div class="spotLight">
+            <div class="lightRay"></div>
+        </div>
+    </nav>
+
+    <script>
+        const links = document.querySelectorAll("nav a");
+        const light = document.querySelector("nav .spotLight");
+        let activeIndex = 0;
+        let currentIndex = 0;
+        let increment = 1;
+        links.forEach((link, index) => {
+            if (links[index].classList.contains("active")) {
+                light.style.left = `${links[index].offsetLeft + light.offsetWidth / 4}px`;
+            }
+            link.addEventListener("click", (e) => {
+                activeIndex = index;
+                let t = setInterval(() => {
+                    if (activeIndex > currentIndex) increment = 1;
+                    else if (activeIndex < currentIndex) increment = -1;
+                    currentIndex += increment;
+
+                    links[currentIndex].classList.add("active");
+                    if (currentIndex != -1)
+                        links[currentIndex - increment].classList.remove("active");
+
+                    if (currentIndex == activeIndex) {
+                        e.target.classList.add("active");
+                        increment = 0;
+                        clearInterval(t);
+                    }
+                }, 50);
+                light.style.left = `${e.target.offsetLeft + light.offsetWidth / 4}px`;
+            });
+        });
+    </script>
+
+</body>
+
+</html>
