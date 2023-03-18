@@ -1,0 +1,93 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #121314;
+    margin: 0;
+    padding: 0;
+}
+
+.hamburger {
+    --front: #3969f8;
+    --back: #d93757;
+    --icon: white;
+    perspective: 600px;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger input {
+    display: none;
+}
+
+.hamburger input+div span {
+    --rotateY: 0deg;
+    --background: var(--front);
+    transform: rotateY(var(--rotateY));
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--background);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.2, 0.64, 0.48, 1.24);
+}
+
+.hamburger input+div span::before,
+.hamburger input+div span::after {
+    --rotate: 0deg;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+    top: 50%;
+    left: 50%;
+    background: var(--icon);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translate(-50%, -50%) rotate(var(--rotate)) translateZ(6px);
+}
+
+.hamburger input+div span:first-child {
+    --background: var(--back);
+}
+
+.hamburger input+div span:first-child::before {
+    --rotate: -45deg;
+}
+
+.hamburger input+div span:first-child::after {
+    --rotate: 45deg;
+}
+
+.hamburger input+div span:last-child {
+    --rotateY: 180deg;
+}
+
+.hamburger input+div span:last-child::before {
+    box-shadow: 0 -5px 0 var(--icon), 0 5px 0 var(--icon);
+}
+
+.hamburger input+div span:last-child::after {
+    display: none;
+}
+
+.hamburger input:checked+div span:first-child {
+    --rotateY: -180deg;
+}
+
+.hamburger input:checked+div span:last-child {
+    --rotateY: 0deg;
+}
