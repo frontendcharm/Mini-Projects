@@ -1,0 +1,155 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #121314;
+}
+
+.hamburger {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transform: translateZ(0);
+    transition: transform 0.1s ease-out;
+}
+
+.hamburger:active {
+    transform: translateY(4px);
+}
+
+.line {
+    display: block;
+    width: 60px;
+    padding: 3.75px;
+}
+
+.line::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7.5px;
+    background-color: #fff;
+    border-radius: 2px;
+    transform: translateZ(0) rotate(0);
+}
+
+.open .line:nth-child(1) {
+    animation: jump_1 0.9s forwards ease;
+}
+
+.open .line:nth-child(1):after {
+    animation: line_1 0.9s forwards ease-in-out;
+}
+
+.open .line:nth-child(2) {
+    animation: jump_2 0.9s forwards ease;
+}
+
+.open .line:nth-child(2):after {
+    animation: line_2 0.9s forwards ease-in-out;
+}
+
+.close .line:nth-child(1) {
+    animation: jump_1 0.9s reverse ease;
+}
+
+.close .line:nth-child(1):after {
+    animation: line_1 0.9s reverse ease-in-out;
+}
+
+.close .line:nth-child(2) {
+    animation: jump_2 0.9s reverse ease;
+}
+
+.close .line:nth-child(2):after {
+    animation: line_2 0.9s reverse ease-in-out;
+}
+
+.open .line:nth-child(3),
+.close .line:nth-child(3) {
+    animation: jump_3 0.9s forwards ease-out;
+}
+
+@keyframes line_1 {
+    10% {
+        transform: translateZ(0) rotate(0);
+    }
+
+    80% {
+        transform: translateZ(0) rotate(395deg);
+    }
+
+    90%,
+    100% {
+        transform: translateZ(0) rotate(405deg);
+    }
+}
+
+@keyframes line_2 {
+    10% {
+        transform: translateZ(0) rotate(0);
+    }
+
+    20% {
+        transform: translateZ(0) rotate(10deg);
+    }
+
+    90%,
+    100% {
+        transform: translateZ(0) rotate(-405deg);
+    }
+}
+
+@keyframes jump_1 {
+    10% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-90px);
+    }
+
+    90%,
+    100% {
+        transform: translateY(-7.5px);
+    }
+}
+
+@keyframes jump_2 {
+    10% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-75px);
+    }
+
+    85%,
+    100% {
+        transform: translateY(-22.5px);
+    }
+}
+
+@keyframes jump_3 {
+    10% {
+        transform: translateY(-7.5px) rotate(15deg);
+    }
+
+    30% {
+        transform: translateY(-30px) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(7.5px) rotate(5deg);
+    }
+
+    80% {
+        transform: translateY(0);
+    }
+}

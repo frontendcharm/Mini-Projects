@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hamburger Icon MI Series - 04</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <button class="hamburger" id="menu_toggle">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </button>
+
+    <script>
+        const btn = document.getElementById("menu_toggle");
+        const lines = btn.querySelectorAll(".line");
+        const cls = { open: "open", close: "close" };
+        let btnClass = cls.open;
+
+        btn.addEventListener("click", () => {
+            if (btn.classList.contains(cls.open)) {
+                btn.classList.remove(btnClass);
+                btnClass = cls.close;
+            } else if (btn.classList.contains(cls.close)) {
+                btn.classList.remove(btnClass);
+                btnClass = cls.open;
+            }
+
+            void btn.offsetWidth;
+            btn.classList.add(btnClass);
+        });
+    </script>
+
+</body>
+
+</html>
