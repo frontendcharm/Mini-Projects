@@ -1,0 +1,104 @@
+* {
+    transition: 0.25s ease-in-out;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #121314;
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    display: block;
+    background: #fff;
+    border-radius: 2px;
+}
+
+#menu-toggle {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#menu-toggle #hamburger {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#menu-toggle #hamburger span {
+    width: 60px;
+    height: 4px;
+    position: relative;
+    top: 24px;
+    left: 20px;
+    margin: 10px 0;
+}
+
+#menu-toggle #hamburger span:nth-child(1) {
+    transition-delay: 0.5s;
+}
+
+#menu-toggle #hamburger span:nth-child(2) {
+    transition-delay: 0.625s;
+}
+
+#menu-toggle #hamburger span:nth-child(3) {
+    transition-delay: 0.75s;
+}
+
+#menu-toggle #cross {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: rotate(45deg);
+}
+
+#menu-toggle #cross span:nth-child(1) {
+    height: 0%;
+    width: 4px;
+    position: absolute;
+    top: 10%;
+    left: 48px;
+    transition-delay: 0s;
+}
+
+#menu-toggle #cross span:nth-child(2) {
+    width: 0%;
+    height: 4px;
+    position: absolute;
+    left: 10%;
+    top: 48px;
+    transition-delay: 0.25s;
+}
+
+#menu-toggle.open #hamburger span {
+    width: 0%;
+}
+
+#menu-toggle.open #hamburger span:nth-child(1) {
+    transition-delay: 0s;
+}
+
+#menu-toggle.open #hamburger span:nth-child(2) {
+    transition-delay: 0.125s;
+}
+
+#menu-toggle.open #hamburger span:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+#menu-toggle.open #cross span:nth-child(1) {
+    height: 80%;
+    transition-delay: 0.625s;
+}
+
+#menu-toggle.open #cross span:nth-child(2) {
+    width: 80%;
+    transition-delay: 0.375s;
+}
