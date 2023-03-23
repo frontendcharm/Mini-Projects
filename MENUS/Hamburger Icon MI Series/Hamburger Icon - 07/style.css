@@ -1,0 +1,69 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #121314;
+}
+
+.hamburger {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    align-self: flex-end;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+}
+
+.hamburger .center {
+    width: 75%;
+    transition: all 200ms ease-in-out;
+}
+
+.hamburger .bottom {
+    width: 50%;
+    transition: all 400ms ease-in-out;
+}
+
+.hamburger:hover div {
+    width: 100%;
+}
+
+.hamburger:hover .top {
+    animation: burger-hover 1s infinite ease-in-out alternate;
+}
+
+.hamburger:hover .center {
+    animation: burger-hover 1s infinite ease-in-out alternate forwards 200ms;
+}
+
+.hamburger:hover .bottom {
+    animation: burger-hover 1s infinite ease-in-out alternate forwards 400ms;
+}
+
+@keyframes burger-hover {
+    0% {
+        width: 100%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
