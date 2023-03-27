@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hamburger Icon MI Series - 05</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="hamburger not-active">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        var btn = $(".hamburger");
+
+        btn.on("click", function () {
+            $(this).toggleClass("active not-active");
+        });
+    </script>
+
+</body>
+
+</html>
