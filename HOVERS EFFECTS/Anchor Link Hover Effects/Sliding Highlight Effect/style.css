@@ -1,0 +1,24 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #151515;
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+a {
+    color: #54b3d6;
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    padding: 0 .25rem;
+    margin: 0 -.25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+a:hover {
+    color: #151515;
+    box-shadow: inset 200px 0 0 0 #54b3d6;
+}

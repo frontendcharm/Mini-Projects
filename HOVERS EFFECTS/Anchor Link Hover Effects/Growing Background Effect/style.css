@@ -1,0 +1,34 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #151515;
+    font-family: "Poppins", sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    background-color: hsla(196, 61%, 58%, .75);
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+    bottom: 0;
+    height: 100%;
+}
