@@ -1,0 +1,89 @@
+:root {
+  --accent: #04da97;
+  --border-width: 3px;
+  --border-radius: 55px;
+  --font-size: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #151515;
+  font-family: sans-serif;
+}
+
+.container {
+  perspective: 800px;
+}
+
+.toggle {
+  position: relative;
+  border: solid var(--border-width) var(--accent);
+  border-radius: var(--border-radius);
+  transition: transform cubic-bezier(0, 0, 0.3, 2) 0.4s;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.toggle>input[type="radio"] {
+  display: none;
+}
+
+.toggle>#choice1:checked~#flap {
+  transform: rotateY(-180deg);
+}
+
+.toggle>#choice1:checked~#flap>.content {
+  transform: rotateY(-180deg);
+}
+
+.toggle>#choice2:checked~#flap {
+  transform: rotateY(0deg);
+}
+
+.toggle>label {
+  display: inline-block;
+  min-width: 170px;
+  padding: 30px;
+  font-size: var(--font-size);
+  text-align: center;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.toggle>label,
+.toggle>#flap {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.toggle>#flap {
+  position: absolute;
+  top: calc(0px - var(--border-width));
+  left: 50%;
+  height: calc(100% + var(--border-width) * 2);
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size);
+  background-color: var(--accent);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.toggle>#flap>.content {
+  color: #151515;
+  transition: transform 0s linear 0.25s;
+  transform-style: preserve-3d;
+}

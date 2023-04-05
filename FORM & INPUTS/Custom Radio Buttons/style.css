@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700,900');
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: #151515;
+}
+
+ul {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 2rem 0.5rem;
+  list-style: none;
+}
+
+ul li.list__item {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+.label__radio {
+  position: relative;
+  margin: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.radio {
+  position: relative;
+  margin: 0 1rem 0 0;
+  cursor: pointer;
+}
+
+.radio::before,
+.radio::after {
+  content: "";
+  position: absolute;
+}
+
+.radio::before {
+  transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  transform: scale(0, 0);
+  top: 0;
+  left: 0.125rem;
+  z-index: 1;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #f7345e;
+  border-radius: 50%;
+}
+
+.radio:checked::before {
+  transform: scale(1, 1);
+}
+
+.radio::after {
+  top: -0.25rem;
+  left: -0.125rem;
+  width: 1rem;
+  height: 1rem;
+  background: #fff;
+  border: 2px solid #f2f2f2;
+  border-radius: 50%;
+}

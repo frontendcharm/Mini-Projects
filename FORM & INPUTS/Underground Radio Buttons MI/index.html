@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Underground Radio Buttons MI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <input type="radio" class="radio__input" id="input1" name="inputs" checked>
+            <label class="radio__label" for="input1">
+                <div class="circle"></div>
+                <div class="radio__name">HTML</div>
+            </label>
+
+            <input type="radio" class="radio__input" id="input2" name="inputs">
+            <label class="radio__label" for="input2">
+                <div class="circle"></div>
+                <div class="radio__name">CSS</div>
+            </label>
+
+            <input type="radio" class="radio__input" id="input3" name="inputs">
+            <label class="radio__label" for="input3">
+                <div class="circle"></div>
+                <div class="radio__name">JavaScript</div>
+            </label>
+
+            <div class="radio__fill"></div>
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+    <svg width="0" height="0" viewBox="0 0 40 140">
+        <defs>
+            <mask id="holes">
+                <rect x="0" y="0" width="100" height="140" fill="white" />
+                <circle r="12" cx="20" cy="20" fill="black" />
+                <circle r="12" cx="20" cy="70" fill="black" />
+                <circle r="12" cx="20" cy="120" fill="black" />
+            </mask>
+        </defs>
+    </svg>
+</body>
+
+</html>

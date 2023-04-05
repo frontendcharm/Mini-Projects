@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bulgy Radio Buttons</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <div class="wrapper" role="radiogroup" aria-labelledby="bulgy-radios-label">
+        <label>
+            <input type="radio" name="options" checked />
+            <span class="radio"></span>
+            <span class="label">First</span>
+        </label>
+
+        <label>
+            <input type="radio" name="options" />
+            <span class="radio"></span>
+            <span class="label">Second</span>
+        </label>
+
+        <label>
+            <input type="radio" name="options" />
+            <span class="radio"></span>
+            <span class="label">Third</span>
+        </label>
+    </div>
+
+    <script>
+        const labels = document.querySelectorAll(".label");
+        labels.forEach((label) => {
+            const chars = label.textContent.split("");
+            label.innerHTML = "";
+            chars.forEach((char) => {
+                label.innerHTML += `<span>${char === " " ? "&nbsp" : char}</span>`;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

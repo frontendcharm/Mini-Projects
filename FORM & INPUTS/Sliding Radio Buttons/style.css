@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #151515;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.radios__wrapper {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  width: 15%;
+  padding-bottom: 15%;
+  margin: 0 2.5%;
+  background: rgb(24, 138, 183);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#slider {
+  position: absolute;
+  left: 0%;
+  top: 0;
+  width: 10%;
+  padding-bottom: 10%;
+  margin: 2.5% 0 0 5%;
+  background: #fff;
+  transition: transform 1s;
+  border-radius: 50%;
+  animation-timing-function: ease-in-out;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  transition: 0.2s left .05s ease-in-out;
+}
+
+#input1:checked~#slider {
+  animation-name: input1;
+  left: 0;
+}
+
+#input2:checked~#slider {
+  animation-name: input2;
+  left: 20%;
+}
+
+#input3:checked~#slider {
+  animation-name: input3;
+  left: 40%;
+}
+
+#input4:checked~#slider {
+  animation-name: input4;
+  left: 60%;
+}
+
+#input5:checked~#slider {
+  animation-name: input5;
+  left: 80%;
+}
+
+@keyframes input1 {
+
+  30%,
+  70% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes input2 {
+
+  30%,
+  70% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes input3 {
+
+  30%,
+  70% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes input4 {
+
+  30%,
+  70% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes input5 {
+
+  30%,
+  70% {
+    transform: scale(0.5);
+  }
+}

@@ -1,0 +1,349 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: none;
+}
+
+body {
+  background: #151515;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  position: relative;
+  padding: 10px;
+  padding-left: 40px;
+  height: 30px;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  appearance: none;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 15px);
+  cursor: pointer;
+}
+
+label::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  position: absolute;
+  left: 7px;
+  top: calc(50% - 13px);
+  border-radius: 50%;
+}
+
+.bullet {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  left: -3px;
+  top: 2px;
+  border: 5px solid #fff;
+  opacity: 0;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked~.bullet {
+  position: absolute;
+  opacity: 1;
+  animation-name: explode;
+  animation-duration: 0.350s;
+}
+
+.line {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+}
+
+.line.zero {
+  left: 11px;
+  top: -21px;
+  transform: translateY(20px);
+  width: 2px;
+  height: 10px;
+}
+
+.line.one {
+  right: -7px;
+  top: -11px;
+  transform: rotate(-55deg) translate(-9px);
+}
+
+.line.two {
+  right: -20px;
+  top: 11px;
+  transform: translate(-9px);
+}
+
+.line.three {
+  right: -8px;
+  top: 35px;
+  transform: rotate(55deg) translate(-9px);
+}
+
+.line.four {
+  left: -8px;
+  top: -11px;
+  transform: rotate(55deg) translate(9px);
+}
+
+.line.five {
+  left: -20px;
+  top: 11px;
+  transform: translate(9px);
+}
+
+.line.six {
+  left: -8px;
+  top: 35px;
+  transform: rotate(-55deg) translate(9px);
+}
+
+.line.seven {
+  left: 11px;
+  bottom: -21px;
+  transform: translateY(-20px);
+  width: 2px;
+  height: 10px;
+}
+
+input[type="radio"]:checked~.bullet .line.zero {
+  animation-name: drop-zero;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.one {
+  animation-name: drop-one;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.two {
+  animation-name: drop-two;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.three {
+  animation-name: drop-three;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.four {
+  animation-name: drop-four;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.five {
+  animation-name: drop-five;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.six {
+  animation-name: drop-six;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.seven {
+  animation-name: drop-seven;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: scale(10);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drop-zero {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    height: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-2px);
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-one {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(-20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-55deg) translate(9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-two {
+  0% {
+    opacity: 0;
+    transform: translate(-20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-three {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(-20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(55deg) translate(9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-four {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(55deg) translate(-9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-five {
+  0% {
+    opacity: 0;
+    transform: translate(20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-six {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(20px);
+    width: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-55deg) translate(-9px);
+    width: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes drop-seven {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    height: 10px;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(2px);
+    height: 0px;
+    opacity: 0;
+  }
+}

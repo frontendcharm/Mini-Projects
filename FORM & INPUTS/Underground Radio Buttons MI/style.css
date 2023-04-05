@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #151515;
+  color: #151515;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+.check {
+  bottom: 0;
+  display: flex;
+  left: calc(50% + 40px);
+  margin-bottom: 10px;
+  position: absolute;
+}
+
+.wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.inner {
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+  width: 160px;
+}
+
+.radio__input {
+  display: none;
+}
+
+.radio__label {
+  height: 25px;
+  position: absolute;
+  width: 160px;
+}
+
+.radio__label:nth-child(2) {
+  left: 8px;
+  top: 8px;
+}
+
+.radio__label:nth-child(4) {
+  left: 8px;
+  top: 58px;
+}
+
+.radio__label:nth-child(6) {
+  left: 8px;
+  top: 108px;
+}
+
+.circle {
+  border: 2px solid #151515;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  position: absolute;
+  transition: border-color 300ms;
+  width: 20px;
+}
+
+.radio__name {
+  cursor: pointer;
+  margin-top: -3px;
+  padding-left: 40px;
+  user-select: none;
+  -moz-user-select: none;
+}
+
+.overlay {
+  height: 140px;
+  width: 40px;
+  pointer-events: none;
+}
+
+.radio__fill {
+  background: #8650fb;
+  border-radius: 50%;
+  height: 12px;
+  left: 14px;
+  pointer-events: none;
+  position: absolute;
+  top: 14px;
+  transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.2);
+  transform: translateY(-50px);
+  width: 12px;
+}
+
+.radio__input:nth-child(1):checked~.radio__fill {
+  transform: translateY(0);
+}
+
+.radio__input:nth-child(3):checked~.radio__fill {
+  transform: translateY(50px);
+}
+
+.radio__input:nth-child(5):checked~.radio__fill {
+  transform: translateY(100px);
+}
+
+.radio__input:nth-child(1):checked+.radio__label .circle {
+  border-color: #8650fb;
+}
+
+.radio__input:nth-child(3):checked+.radio__label .circle {
+  border-color: #8650fb;
+}
+
+.radio__input:nth-child(5):checked+.radio__label .circle {
+  border-color: #8650fb;
+}
+
+.check:checked~.wrapper .overlay {
+  background: #ecf0f4;
+}
