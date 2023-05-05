@@ -1,0 +1,83 @@
+body {
+    margin: 5% auto 0 auto;
+    width: 90%;
+    max-width: 1125px;
+    background-color: #151515;
+}
+
+input,
+span,
+label {
+    font-family: "Ubuntu", sans-serif;
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+}
+
+input:focus {
+    outline: 0;
+}
+
+input.input__control {
+    font-size: 2.5rem;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 80%;
+    background-color: transparent;
+    color: #fff;
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    overflow-x: hidden;
+}
+
+input.input__control+label {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    border-top: 1px solid #388bff;
+    transition: width 0.4s ease;
+    height: 0;
+}
+
+input.input__control:focus+label {
+    width: 80%;
+}
+
+input.input__control:focus,
+input.input__control:valid {
+    padding-top: 35px;
+}
+
+input.input__control:focus+label>span,
+input.input__control:valid+label>span {
+    top: -100px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+input.input__control:valid+label {
+    border-color: #00cb00;
+}
+
+input.input__control+label>span {
+    font-weight: 300;
+    margin: 0;
+    position: absolute;
+    color: #8f8f8f;
+    font-size: 3rem;
+    top: -66px;
+    left: 0px;
+    z-index: -1;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
