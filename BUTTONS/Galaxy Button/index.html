@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Galaxy Button On Hover</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <div class="galaxy-button">
+        <button>
+            <span class="spark"></span>
+            <span class="backdrop"></span>
+            <span class="galaxy__container">
+                <span class="star star--static"></span>
+                <span class="star star--static"></span>
+                <span class="star star--static"></span>
+                <span class="star star--static"></span>
+            </span>
+            <span class="galaxy">
+                <span class="galaxy__ring">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                </span>
+            </span>
+            <span class="text">Explore</span>
+        </button>
+        <div class="bodydrop"></div>
+    </div>
+
+    <script>
+        const RANDOM = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+        const PARTICLES = document.querySelectorAll('.star');
+        PARTICLES.forEach(P => {
+            P.setAttribute('style', `
+    --angle: ${RANDOM(0, 360)};
+    --duration: ${RANDOM(6, 20)};
+    --delay: ${RANDOM(1, 10)};
+    --alpha: ${RANDOM(40, 90) / 100};
+    --size: ${RANDOM(2, 6)};
+    --distance: ${RANDOM(40, 200)};
+  `);
+        });
+    </script>
+
+</body>
+
+</html>
