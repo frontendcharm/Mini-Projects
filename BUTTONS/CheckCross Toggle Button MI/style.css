@@ -1,0 +1,171 @@
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    background: #151515;
+    display: grid;
+    place-items: center;
+}
+
+.toggleButton {
+    cursor: pointer;
+    display: block;
+    transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    transition: transform 0.14s ease;
+}
+
+.toggleButton:active {
+    transform: rotateX(30deg);
+}
+
+.toggleButton input {
+    display: none;
+}
+
+.toggleButton input+div {
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+
+.toggleButton input+div svg {
+    fill: none;
+    stroke-width: 3.6;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 44px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    inset: -3px;
+    z-index: 1;
+    stroke-dashoffset: 124.6;
+    stroke-dasharray: 0 162.6 133 29.6;
+    transition: all 0.4s ease 0s;
+}
+
+.toggleButton input+div::before,
+.toggleButton input+div::after {
+    content: "";
+    width: 3px;
+    height: 16px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 5px;
+}
+
+.toggleButton input+div::before {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    animation: bounceInBefore 0.3s linear forwards 0.3s;
+}
+
+.toggleButton input+div::after {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    animation: bounceInAfter 0.3s linear forwards 0.3s;
+}
+
+.toggleButton input:checked+div svg {
+    stroke-dashoffset: 162.6;
+    stroke-dasharray: 0 162.6 28 134.6;
+    transition: all 0.4s ease 0.2s;
+}
+
+.toggleButton input:checked+div::before {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    animation: bounceOutBefore 0.3s linear forwards 0s;
+}
+
+.toggleButton input:checked+div::after {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    animation: bounceOutAfter 0.3s linear forwards 0s;
+}
+
+@keyframes bounceInBefore {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes bounceInAfter {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+@keyframes bounceOutBefore {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes bounceOutAfter {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+}
