@@ -1,0 +1,87 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #151515;
+}
+
+.share__btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 100vmax;
+    border: 0;
+    font-size: 2rem;
+    background-color: #fff;
+    color: #151515;
+    cursor: pointer;
+    transition: width 300ms ease-in-out;
+    transition-delay: 50ms;
+    z-index: 1;
+}
+
+.share__btn::before {
+    content: "x";
+    position: absolute;
+    left: 5px;
+    font-size: 2.25rem;
+    font-weight: 500;
+    font-family: "Nunito", sans-serif;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: transparent;
+    color: #fff;
+    border-radius: inherit;
+    z-index: -1;
+    transition: background-color 300ms ease-in-out;
+}
+
+.social__icons {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100% - 2em);
+    height: 100%;
+    right: 0;
+    border-radius: inherit;
+}
+
+.fa-facebook-f,
+.fa-twitter,
+.fa-instagram {
+    transform: scale(0);
+    transition: transform 300ms ease-in-out;
+}
+
+.share__icon {
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+.share__btn.open {
+    width: 8em;
+}
+
+.share__btn.open::before {
+    background-color: #F44336;
+}
+
+.share__btn.open :is(.fa-facebook-f, .fa-twitter, .fa-instagram) {
+    transform: scale(1);
+}
+
+.share__btn.open .share__icon {
+    transform: scale(0);
+}
