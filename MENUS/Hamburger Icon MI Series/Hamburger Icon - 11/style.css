@@ -1,0 +1,78 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #151515;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+button {
+    appearance: none;
+    background-color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    outline: none;
+    position: relative;
+}
+
+button.active #open-cubes rect,
+button.active #close-cubes rect {
+    fill: #cf2d45;
+}
+
+button svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+button svg #open-cubes rect,
+button svg #close-cubes rect {
+    fill: #294bf5;
+    transition: fill 600ms ease;
+}
+
+button svg #close-cubes rect {
+    opacity: 0;
+}
+
+.spin-in {
+    animation: spin-in 1300ms ease 1 forwards 10ms;
+    transform-origin: center;
+}
+
+.spin-out {
+    animation: spin-out 1300ms ease 1 forwards 10ms;
+    transform-origin: center;
+}
+
+@keyframes spin-in {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes spin-out {
+    0% {
+        opacity: 1;
+        transform: rotate(720deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+}
