@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #151515;
+}
+
+img {
+  --f: 0.1;
+  /* the parallax factor (the smaller the better) */
+  --r: 10px;
+  /* radius */
+
+  --_f: calc(100% * var(--f) / (1 + var(--f)));
+  --_a: calc(90deg * var(--f));
+  width: 300px;
+  /* the image size */
+  aspect-ratio: calc(1 + var(--f));
+  object-fit: cover;
+  clip-path: inset(0 var(--_f) 0 0 round var(--r));
+  transform: perspective(400px) var(--_t, rotateY(var(--_a)));
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+img:hover {
+  clip-path: inset(0 0 0 var(--_f) round var(--r));
+  --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
+}
