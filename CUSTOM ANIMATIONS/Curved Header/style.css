@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Titillium Web", sans-serif;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    background-size: 300%;
+    animation: bg-animation 20s linear infinite;
+}
+
+h1 {
+    font-size: 600%;
+    font-weight: 900;
+    letter-spacing: 0;
+
+    color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(245deg,
+            rgba(153, 169, 255, 1) 20%,
+            rgba(252, 255, 0, 1) 48%,
+            rgba(178, 101, 255, 1) 75%);
+    background-size: 140%;
+    animation: bg-animation 3s linear infinite;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 5, 34);
+    background: linear-gradient(245deg,
+            rgba(0, 5, 34, 1) 38%,
+            rgba(58, 1, 115, 1) 65%);
+    border-radius: 0 0 60% 60% / 0 0 100% 100%;
+    transform: scaleX(1.5);
+    z-index: -1;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}

@@ -1,0 +1,45 @@
+body {
+    background: #151515;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.card {
+    background-color: #fff;
+    height: 62px;
+    margin-top: 16vh;
+    transition: height 400ms;
+    -webkit-tap-highlight-color: #00000010;
+}
+
+.card.active {
+    height: 400px;
+}
+
+.title {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-top: 8px;
+    user-select: none;
+}
+
+.row {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px 20px;
+    transition: height 400ms;
+    width: 200px;
+}
+
+.icon {
+    fill: none;
+    margin-top: 0px;
+    stroke: #000;
+    stroke-width: 12;
+    stroke-linecap: square;
+    stroke-linejoin: round;
+}
