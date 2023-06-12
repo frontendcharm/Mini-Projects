@@ -1,0 +1,85 @@
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyDark: #9baacf;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 75;
+  overflow-y: scroll;
+  background: var(--greyLight-1);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--greyLight-1);
+}
+
+.switch input {
+  display: none;
+}
+
+.switch {
+  width: 6rem;
+}
+
+.switch label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+  background: rgba(255, 255, 255, 0);
+  position: relative;
+  cursor: pointer;
+  border-radius: 1.6rem;
+}
+
+.switch label::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(330deg,
+      var(--primary-dark) 0%,
+      var(--primary) 50%,
+      var(--primary-light) 100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.switch input:checked~label::before {
+  opacity: 1;
+}
+
+.switch label::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--greyDark);
+  transition: all 0.4s ease;
+}
+
+.switch input:checked~label::after {
+  left: 57%;
+  background: var(--greyLight-1);
+}
