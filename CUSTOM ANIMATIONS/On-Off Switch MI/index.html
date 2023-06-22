@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Changing Background Gradient Animation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="switch">
+            <div class="toggle-button">
+                <div class="toggle"></div>
+                <div class="moon-mask"></div>
+                <div class="circles-wrapper">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text">
+            <p>n</p>
+            <p>ff</p>
+        </div>
+    </div>
+
+    <script>
+        const animate = gsap.timeline({ paused: true });
+        const animateBackground = new TimelineMax({ paused: true });
+        let toggle = true;
+
+        animateBackground
+            .to("body", 0.1, { backgroundImage: "none", backgroundColor: "#111" }, 0.2)
+            .set(".switch", { boxShadow: "0 0 10px rgba(255, 255, 255, 0.2)" })
+            .to(".text p", 0.1, { color: "#FFF" }, 0.2);
+
+        animate
+            .to(".toggle-button", 0.2, { scale: 0.7 }, 0)
+            .set(".toggle", { backgroundColor: "#FFF" })
+            .set(".circle", { display: "none" })
+            .to(".moon-mask", 0.2, { translateY: 20, translateX: -10 }, 0.2)
+            .to(".toggle-button", 0.2, { translateY: 49 }, 0.2)
+            .to(".toggle-button", 0.2, { scale: 0.9 });
+
+        document.getElementsByClassName("switch")[0].addEventListener("click", () => {
+            if (toggle) {
+                animate.restart();
+                animateBackground.restart();
+            } else {
+                animate.reverse();
+                animateBackground.reverse();
+            }
+            toggle = !toggle;
+        });
+    </script>
+</body>
+
+</html>

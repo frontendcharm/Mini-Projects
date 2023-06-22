@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #fdb813;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.switch {
+    width: 60px;
+    height: 110px;
+    padding-top: 2px;
+    background-color: #514e4b;
+    border-radius: 40px;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-button {
+    transform: scale(0.8);
+    transform-origin: center center;
+}
+
+.toggle {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin: 12px;
+    margin-top: 12px;
+    background-color: #fdb813;
+    border-radius: 50%;
+}
+
+.moon-mask {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    margin: -74px 0 0 34px;
+    background-color: #514e4b;
+    border-radius: 50%;
+}
+
+.circles-wrapper .circle {
+    position: absolute;
+    width: 4px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.circles-wrapper .circle:first-child {
+    margin: -57px 0 0 27px;
+}
+
+.circles-wrapper .circle:nth-child(2) {
+    margin: -9px 0 0 28px;
+}
+
+.circles-wrapper .circle:nth-child(3) {
+    margin: -32px 0 0 51px;
+    transform: rotate(90deg);
+}
+
+.circles-wrapper .circle:nth-child(4) {
+    margin: -33px 0 0 4px;
+    transform: rotate(90deg);
+}
+
+.circles-wrapper .circle:nth-child(5) {
+    margin: -14px 0 0 10px;
+    transform: rotate(45deg);
+}
+
+.circles-wrapper .circle:nth-child(6) {
+    margin: -14px 0 0 45px;
+    transform: rotate(320deg);
+}
+
+.circles-wrapper .circle:nth-child(7) {
+    margin: -50px 0 0 10px;
+    transform: rotate(135deg);
+}
+
+.circles-wrapper .circle:nth-child(8) {
+    margin: -50px 0 0 45px;
+    transform: rotate(235deg);
+}
+
+.text p {
+    margin-left: 5px;
+    font-size: 55px;
+    line-height: 1.1;
+    font-weight: 700;
+}
