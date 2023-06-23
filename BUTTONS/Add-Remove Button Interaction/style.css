@@ -1,146 +1,212 @@
-.add-remove-button {
-    --color: #fff;
-    --duration: 1s;
-    width: 36px;
-    height: 36px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.add-remove-button:before,
-.add-remove-button:after,
-.add-remove-button div:before,
-.add-remove-button div:after {
-    content: "";
-    top: var(--t, 12px);
-    left: var(--l, 18px);
-    width: 4px;
-    height: 16px;
-    border-radius: 2px;
-    margin: -8px 0 0 -2px;
-    background: var(--color);
-    position: absolute;
-    transform: rotate(var(--r, 0));
-    -webkit-animation: var(--n, move) var(--duration) ease forwards;
-    animation: var(--n, move) var(--duration) ease forwards;
-    -webkit-animation-play-state: var(--p, paused);
-    animation-play-state: var(--p, paused);
-}
-
-.add-remove-button:after {
-    --d: -1;
-    --t: 24px;
-}
-
-.add-remove-button div {
-    --m: -1;
-    --r-a: 180deg;
-    --t: 18px;
-    --r: 90deg;
-    --x: 1px;
-    --y: 5px;
-}
-
-.add-remove-button div:before {
-    --l: 12px;
-}
-
-.add-remove-button div:after {
-    --d: -1;
-    --l: 24px;
-}
-
-.add-remove-button.active {
-    --p: running;
-}
-
-.add-remove-button.active.inactive {
-    --n: move-back;
-}
-
-@-webkit-keyframes move {
-    0% {
-        transform: rotate(var(--r, 0));
-    }
-
-    50% {
-        transform: rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
-    }
-
-    100% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
-    }
-}
-
-@keyframes move {
-    0% {
-        transform: rotate(var(--r, 0));
-    }
-
-    50% {
-        transform: rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
-    }
-
-    100% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + var(--r-a, 0deg)));
-    }
-}
-
-@-webkit-keyframes move-back {
-    0% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + calc(var(--r-a, 0deg))));
-    }
-
-    50% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1) * .7), calc(var(--y, 1px) * var(--d, 1) * .7)) rotate(var(--r, 0));
-    }
-
-    100% {
-        transform: rotate(var(--r, 0));
-    }
-}
-
-@keyframes move-back {
-    0% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1)), calc(var(--y, 1px) * var(--d, 1))) rotate(calc(-45deg * var(--m, 1) + calc(var(--r-a, 0deg))));
-    }
-
-    50% {
-        transform: translate(calc(var(--x, -5px) * var(--d, 1) * .7), calc(var(--y, 1px) * var(--d, 1) * .7)) rotate(var(--r, 0));
-    }
-
-    100% {
-        transform: rotate(var(--r, 0));
-    }
-}
-
 html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
 
-* {
-    box-sizing: inherit;
-}
-
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
 body {
     min-height: 100vh;
-    font-family: "Roboto", Arial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #275EFE;
-    font-family: "Roboto", Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    background: #151515;
+}
+
+.button {
+    --background: #e882f7;
+    --text: #151515;
+    --cart: #151515;
+    --tick: var(--background);
+    position: relative;
+    border: none;
+    background: none;
+    padding: 8px 28px;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    mask-image: -webkit-radial-gradient(white, black);
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    min-width: 144px;
+    color: var(--text);
+    background: var(--background);
+    transform: scale(var(--scale, 1));
+    transition: transform 0.4s cubic-bezier(0.36, 1.01, 0.32, 1.27);
+}
+
+.button:active {
+    --scale: 0.95;
+}
+
+.button span {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    margin-left: -8px;
+    line-height: 26px;
+    transform: translateY(var(--span-y, 0));
+    transition: transform 0.7s ease;
+}
+
+.button span::before,
+.button span::after {
+    content: "";
+    width: var(--w, 2px);
+    height: var(--h, 14px);
+    border-radius: 1px;
+    position: absolute;
+    left: var(--l, 8px);
+    top: var(--t, 6px);
+    background: currentColor;
+    transform: scale(0.75) rotate(var(--icon-r, 0deg)) translateY(var(--icon-y, 0));
+    transition: transform 0.65s ease 0.05s;
+}
+
+.button span::after {
+    --w: 14px;
+    --h: 2px;
+    --l: 2px;
+    --t: 12px;
+}
+
+.button .cart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -13px 0 0 -18px;
+    transform-origin: 12px 23px;
+    transform: translateX(-120px) rotate(-18deg);
+}
+
+.button .cart::before,
+.button .cart::after {
+    content: "";
+    position: absolute;
+}
+
+.button .cart::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--cart);
+    bottom: 0;
+    left: 9px;
+    filter: drop-shadow(11px 0 0 var(--cart));
+}
+
+.button .cart::after {
+    width: 16px;
+    height: 9px;
+    background: var(--cart);
+    left: 9px;
+    bottom: 7px;
+    transform-origin: 50% 100%;
+    transform: perspective(4px) rotateX(-6deg) scaleY(var(--fill, 0));
+    transition: transform 1.2s ease var(--fill-d);
+}
+
+.button .cart svg {
+    z-index: 1;
+    width: 36px;
+    height: 26px;
+    display: block;
+    position: relative;
+    fill: none;
+    stroke: var(--cart);
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.button .cart svg polyline:last-child {
+    stroke: var(--tick);
+    stroke-dasharray: 10px;
+    stroke-dashoffset: var(--offset, 10px);
+    transition: stroke-dashoffset 0.4s ease var(--offset-d);
+}
+
+.button.loading {
+    --scale: 0.95;
+    --span-y: -32px;
+    --icon-r: 180deg;
+    --fill: 1;
+    --fill-d: 0.8s;
+    --offset: 0;
+    --offset-d: 1.73s;
+}
+
+.button.loading .cart {
+    -webkit-animation: cart 3.4s linear forwards 0.2s;
+    animation: cart 3.4s linear forwards 0.2s;
+}
+
+@-webkit-keyframes cart {
+    12.5% {
+        transform: translateX(-60px) rotate(-18deg);
+    }
+
+    25%,
+    45%,
+    55%,
+    75% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    44%,
+    56% {
+        transform-origin: 12px 23px;
+    }
+
+    45%,
+    55% {
+        transform-origin: 50% 50%;
+    }
+
+    87.5% {
+        transform: translateX(70px) rotate(-18deg);
+    }
+
+    100% {
+        transform: translateX(140px) rotate(-18deg);
+    }
+}
+
+@keyframes cart {
+    12.5% {
+        transform: translateX(-60px) rotate(-18deg);
+    }
+
+    25%,
+    45%,
+    55%,
+    75% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    44%,
+    56% {
+        transform-origin: 12px 23px;
+    }
+
+    45%,
+    55% {
+        transform-origin: 50% 50%;
+    }
+
+    87.5% {
+        transform: translateX(70px) rotate(-18deg);
+    }
+
+    100% {
+        transform: translateX(140px) rotate(-18deg);
+    }
 }

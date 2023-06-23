@@ -4,32 +4,33 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Add-Remove Button Interaction</title>
+    <title>Add To Cart Interaction</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
 </head>
 
 <body>
-    <button class="add-remove-button">
-        <div></div>
+    <button class="button">
+        <span>Add to cart</span>
+        <div class="cart">
+            <svg viewBox="0 0 36 26">
+                <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
+                <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
+            </svg>
+        </div>
     </button>
 
     <script>
-        document.querySelectorAll('.add-remove-button').forEach(button => {
-            button.addEventListener('click', e => {
-                if (button.classList.contains('inactive')) {
-                    button.classList.remove('active', 'inactive');
-                    button.classList.add('active');
-                } else {
-                    if (button.classList.contains('active')) {
-                        button.classList.add('inactive');
-                    }
+        document.querySelectorAll(".button").forEach((button) =>
+            button.addEventListener("click", (e) => {
+                if (!button.classList.contains("loading")) {
+                    button.classList.add("loading");
+
+                    setTimeout(() => button.classList.remove("loading"), 3700);
                 }
-                if (!button.classList.contains('active')) {
-                    button.classList.add('active');
-                }
-            });
-        });
+                e.preventDefault();
+            })
+        );
     </script>
 </body>
 
