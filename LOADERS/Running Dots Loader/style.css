@@ -1,0 +1,76 @@
+body {
+    background: #151515;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+#loader {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+}
+
+#loader div {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#d1 {
+    animation: animate 2s linear infinite;
+}
+
+#d2 {
+    animation: animate 2s linear infinite -0.4s;
+}
+
+#d3 {
+    animation: animate 2s linear infinite -0.8s;
+}
+
+#d4 {
+    animation: animate 2s linear infinite -1.2s;
+}
+
+#d5 {
+    animation: animate 2s linear infinite -1.6s;
+}
+
+@keyframes animate {
+    0% {
+        left: 100px;
+        top: 0;
+    }
+
+    80% {
+        left: 0;
+        top: 0;
+    }
+
+    85% {
+        left: 0;
+        top: -20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    90% {
+        width: 40px;
+        height: 15px;
+    }
+
+    95% {
+        left: 100px;
+        top: -20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        left: 100px;
+        top: 0;
+    }
+}
