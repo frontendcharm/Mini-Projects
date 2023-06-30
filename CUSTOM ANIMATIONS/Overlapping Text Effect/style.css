@@ -1,0 +1,39 @@
+html {
+  color-scheme: dark;
+  background: #151515;
+}
+
+h1 {
+  text-align: center;
+  font-size: 16vmin;
+  font-family: system-ui, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.overlap {
+  --overlap: 0.25ch;
+  --shadow-offset: 0.125ch;
+  --shadow-spread: 0.25ch;
+  --shadow-color: #000;
+  letter-spacing: calc(var(--overlap) * -1);
+  isolation: isolate;
+}
+
+.overlap__front {
+  --mult: 1;
+}
+
+.overlap__back {
+  --mult: -1;
+}
+
+.overlap>span {
+  position: relative;
+  z-index: calc(var(--index, 1) * var(--mult, 1));
+}
+
+.overlap__front>span:not(:first-of-type),
+.overlap__back>span:not(:last-of-type) {
+  text-shadow: calc(var(--mult, 1) * var(--shadow-offset, 0) * -1) 0 var(--shadow-spread, 0) var(--shadow-color, #000);
+}
