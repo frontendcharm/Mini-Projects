@@ -1,0 +1,34 @@
+body,
+html,
+#neon {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#neon {
+    overflow: hidden;
+    touch-action: pan-up;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+}
+
+#neon h1 {
+    --fontSize: 60px;
+    --lineHeight: 80px;
+    width: auto;
+    height: calc(2 * var(--lineHeight));
+    line-height: var(--lineHeight);
+    margin: calc(50vh - var(--lineHeight)) auto 0;
+    font-size: var(--fontSize);
+    text-transform: uppercase;
+}
+
+#neon canvas {
+    display: block;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+}
