@@ -1,0 +1,25 @@
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  background: linear-gradient(135deg, #295fd5, #9d8ce0);
+  user-select: none;
+}
+
+.wrapper {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item {
+  width: 15vw;
+  height: 75vh;
+  background-position: center;
+  background-size: cover;
+  margin: 1vw;
+  border-radius: 3vw;
+  display: inline-block;
+  cursor: pointer;
+}

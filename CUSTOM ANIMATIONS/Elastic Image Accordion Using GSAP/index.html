@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Elastic Image Accordion Using GSAP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="item"
+            style="background-image: url(https://images.unsplash.com/photo-1464965911861-746a04b4bca6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)">
+        </div>
+
+        <div class="item"
+            style="background-image: url(https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXRzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60)">
+        </div>
+
+        <div class="item"
+            style="background-image: url(https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=696&q=80)">
+        </div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+
+        const expand = (item, i) => {
+            items.forEach((it, ind) => {
+                if (i === ind) return;
+                it.clicked = false;
+            });
+            gsap.to(items, {
+                width: item.clicked ? '15vw' : '8vw',
+                duration: 2,
+                ease: 'elastic(1, .6)'
+            });
+
+
+            item.clicked = !item.clicked;
+            gsap.to(item, {
+                width: item.clicked ? '42vw' : '15vw',
+                duration: 2.5,
+                ease: 'elastic(1, .3)'
+            });
+
+        };
+
+        items.forEach((item, i) => {
+            item.clicked = false;
+            item.addEventListener('click', () => expand(item, i));
+        });
+    </script>
+</body>
+
+</html>
