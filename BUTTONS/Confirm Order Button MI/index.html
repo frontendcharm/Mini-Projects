@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Confirm Order Button Micro Interaction</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <button class="truck-button">
+        <span class="default">Confirm Order</span>
+        <span class="success">
+            Order Placed
+            <svg viewbox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+            </svg>
+        </span>
+        <div class="truck">
+            <div class="wheel"></div>
+            <div class="back"></div>
+            <div class="front"></div>
+            <div class="box"></div>
+        </div>
+    </button>
+
+    <script>
+        document.querySelectorAll(".truck-button").forEach((button) => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                let box = button.querySelector(".box"),
+                    truck = button.querySelector(".truck");
+
+                if (!button.classList.contains("done")) {
+                    if (!button.classList.contains("animation")) {
+                        button.classList.add("animation");
+
+                        gsap.to(button, {
+                            "--box-s": 1,
+                            "--box-o": 1,
+                            duration: 0.3,
+                            delay: 0.5
+                        });
+
+                        gsap.to(box, {
+                            x: 0,
+                            duration: 0.4,
+                            delay: 0.7
+                        });
+
+                        gsap.to(button, {
+                            "--hx": -5,
+                            "--bx": 50,
+                            duration: 0.18,
+                            delay: 0.92
+                        });
+
+                        gsap.to(box, {
+                            y: 0,
+                            duration: 0.1,
+                            delay: 1.15
+                        });
+
+                        gsap.set(button, {
+                            "--truck-y": 0,
+                            "--truck-y-n": -26
+                        });
+
+                        gsap.to(button, {
+                            "--truck-y": 1,
+                            "--truck-y-n": -25,
+                            duration: 0.2,
+                            delay: 1.25,
+                            onComplete() {
+                                gsap
+                                    .timeline({
+                                        onComplete() {
+                                            button.classList.add("done");
+                                        }
+                                    })
+                                    .to(truck, {
+                                        x: 0,
+                                        duration: 0.4
+                                    })
+                                    .to(truck, {
+                                        x: 40,
+                                        duration: 1
+                                    })
+                                    .to(truck, {
+                                        x: 20,
+                                        duration: 0.6
+                                    })
+                                    .to(truck, {
+                                        x: 96,
+                                        duration: 0.4
+                                    });
+                                gsap.to(button, {
+                                    "--progress": 1,
+                                    duration: 2.4,
+                                    ease: "power2.in"
+                                });
+                            }
+                        });
+                    }
+                } else {
+                    button.classList.remove("animation", "done");
+                    gsap.set(truck, {
+                        x: 4
+                    });
+                    gsap.set(button, {
+                        "--progress": 0,
+                        "--hx": 0,
+                        "--bx": 0,
+                        "--box-s": 0.5,
+                        "--box-o": 0,
+                        "--truck-y": 0,
+                        "--truck-y-n": -26
+                    });
+                    gsap.set(box, {
+                        x: -24,
+                        y: -6
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
