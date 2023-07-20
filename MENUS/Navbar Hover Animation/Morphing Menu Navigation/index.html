@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Morphing Menu Navigation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="#" class="nav-item is-active" active-color="#f87917">Home</a>
+        <a href="#" class="nav-item" active-color="#019901">About</a>
+        <a href="#" class="nav-item" active-color="#0f2abe">Testimonials</a>
+        <a href="#" class="nav-item" active-color="#db0000">Blog</a>
+        <a href="#" class="nav-item" active-color="#663399">Contact</a>
+        <span class="nav-indicator"></span>
+    </nav>
+
+    <script>
+        const indicator = document.querySelector(".nav-indicator");
+        const items = document.querySelectorAll(".nav-item");
+
+        function handleIndicator(el) {
+            items.forEach((item) => {
+                item.classList.remove("is-active");
+                item.removeAttribute("style");
+            });
+
+            indicator.style.width = `${el.offsetWidth}px`;
+            indicator.style.left = `${el.offsetLeft}px`;
+            indicator.style.backgroundColor = el.getAttribute("active-color");
+
+            el.classList.add("is-active");
+            el.style.color = el.getAttribute("active-color");
+        }
+
+        items.forEach((item, index) => {
+            item.addEventListener("click", (e) => {
+                handleIndicator(e.target);
+            });
+            item.classList.contains("is-active") && handleIndicator(item);
+        });
+    </script>
+
+</body>
+
+</html>
