@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #151515;
+}
+
+img {
+  --s: 300px;
+  width: var(--s);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: calc(-.14*var(--s));
+  outline: var(--s) solid #bf9382;
+  outline-offset: calc(var(--s)/-2);
+  clip-path: inset(14.65% round 20px);
+  transition: .7s;
+  cursor: pointer;
+}
+
+img:hover {
+  outline-offset: 0;
+}
