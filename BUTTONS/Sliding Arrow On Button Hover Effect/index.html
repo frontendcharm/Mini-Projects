@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sliding Arrow On Button Hover Effect</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+    <button>
+        <span class="text">Hover</span>
+        <div class="icon-container">
+            <div class="icon icon--left">
+                <svg>
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </div>
+
+            <div class="icon icon--right">
+                <svg>
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </div>
+        </div>
+    </button>
+
+    <svg style="display: none;">
+        <symbol id="arrow-right" viewBox="0 0 20 10">
+            <path d="M14.84 0l-1.08 1.06 3.3 3.2H0v1.49h17.05l-3.3 3.2L14.84 10 20 5l-5.16-5z"></path>
+        </symbol>
+    </svg>
+</body>
+
+</html>
