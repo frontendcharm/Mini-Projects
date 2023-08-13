@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Accent Color Example</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="color-picker">
+            <p>Pick a color 👇</p>
+            <input type="color">
+        </div>
+
+        <fieldset class="checkboxes">
+            <legend>Checkboxes</legend>
+            <label><input type="checkbox" checked>One</label>
+            <label><input type="checkbox" checked>Two</label>
+            <label><input type="checkbox">Three</label>
+        </fieldset>
+
+        <fieldset class="radio-buttons">
+            <legend>Radio Buttons</legend>
+            <label><input type="radio" name="color-example" checked>One</label>
+            <label><input type="radio" name="color-example">Two</label>
+            <label><input type="radio" name="color-example">Three</label>
+        </fieldset>
+
+        <fieldset class="range">
+            <legend>Range slider</legend>
+            <input type="range">
+        </fieldset>
+    </main>
+
+    <script>
+        const colorInput = document.querySelector("input[type=color]");
+        const colorVariable = "--clr-accent";
+
+        colorInput.addEventListener("change", (e) => {
+            document.documentElement.style.setProperty(colorVariable, e.target.value);
+        });
+    </script>
+
+</body>
+
+</html>

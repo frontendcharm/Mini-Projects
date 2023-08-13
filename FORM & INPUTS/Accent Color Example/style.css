@@ -1,0 +1,44 @@
+:root {
+  --clr-accent: #0aff11;
+}
+
+input {
+  accent-color: var(--clr-accent);
+}
+
+body {
+  padding: 2rem;
+  background: #061e22;
+  font-size: 1.5rem;
+  color: white;
+}
+
+p {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: min-content 1fr;
+}
+
+main>*:not(.color-picker) {
+  grid-column: 2/-1;
+}
+
+input:not([type=color]) {
+  margin-right: 0.8em;
+}
+
+legend {
+  background: white;
+  padding: 0.2em 1em;
+  color: #061e22;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
