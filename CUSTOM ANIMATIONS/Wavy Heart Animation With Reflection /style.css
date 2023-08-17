@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #121314;
+}
+
+span {
+  font-size: 200px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("https://i.postimg.cc/nc4F5FM2/wave-1.png");
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #ff2a2a;
+  background-size: cover;
+  background-position-x: 20%;
+  background-position-y: 100%;
+  animation: Waves 10s infinite;
+  -webkit-box-reflect: below -30px linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+}
+
+@keyframes Waves {
+  50% {
+    background-position-x: 100%;
+  }
+}
