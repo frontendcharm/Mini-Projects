@@ -21,7 +21,7 @@ label {
   transition: 0.3s;
 }
 
-label:after {
+label::after {
   content: "";
   width: 180px;
   height: 180px;
@@ -63,7 +63,7 @@ input:checked+label {
   background: #242424;
 }
 
-input:checked+label:after {
+input:checked+label::after {
   left: 490px;
   transform: translateX(-100%);
   background: linear-gradient(180deg, #777, #3a3a3a);
@@ -81,7 +81,7 @@ input:checked+label+.background {
   background: #242424;
 }
 
-input:active:after {
+input:active::after {
   width: 260px;
 }
 
