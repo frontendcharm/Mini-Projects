@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>3D Rotating Geometry Shape Using Three.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <script>
+      if (window.innerWidth === 0) {
+        window.innerWidth = parent.innerWidth;
+        window.innerHeight = parent.innerHeight;
+      }
+
+      var camera, scene, renderer;
+      var geometry, material, mesh;
+
+      init();
+      animate();
+
+      function init() {
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          2,
+          1000
+        );
+        camera.position.z = 400;
+
+        scene = new THREE.Scene();
+
+        geometry = new THREE.IcosahedronGeometry(100, 1);
+        material = new THREE.MeshBasicMaterial({
+          color: 0xff3399,
+          wireframe: true,
+          wireframeLinewidth: 1,
+        });
+
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        document.body.appendChild(renderer.domElement);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        mesh.rotation.x += 0.03;
+        mesh.rotation.y += 0.02;
+
+        renderer.render(scene, camera);
+      }
+    </script>
+  </body>
+</html>
