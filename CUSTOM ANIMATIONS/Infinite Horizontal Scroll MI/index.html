@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Infinite Horizontal Scroll Micro Interaction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <h1 style="text-align: center">Infinite Scroll Animation</h1>
+
+    <div class="scroller" data-speed="fast">
+      <ul class="tag-list scroller__inner">
+        <li>UI/UX</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>TS</li>
+        <li>React</li>
+        <li>NodeJS</li>
+      </ul>
+    </div>
+
+    <script>
+      const scrollers = document.querySelectorAll(".scroller");
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        scrollers.forEach((scroller) => {
+          scroller.setAttribute("data-animated", true);
+
+          const scrollerInner = scroller.querySelector(".scroller__inner");
+
+          Array.from(scrollerInner.children).forEach((item) => {
+            const duplicatedItem = item.cloneNode(true);
+            duplicatedItem.setAttribute("aria-hidden", true);
+            scrollerInner.appendChild(duplicatedItem);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
