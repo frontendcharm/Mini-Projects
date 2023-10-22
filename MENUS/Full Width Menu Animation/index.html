@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Full Width Menu Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="menu-container" id="toggle">
+        <a href="#" class="menu"
+          ><i class="fa fa-bars" aria-hidden="true"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      const menu = document.querySelector("#toggle");
+      const menuItems = document.querySelector("#overlay");
+      const menuContainer = document.querySelector(".menu-container");
+      const menuIcon = document.querySelector("i");
+
+      menu.addEventListener("click", () => {
+        menuItems.classList.toggle("open");
+        menuContainer.classList.toggle("full-menu");
+        menuIcon.classList.toggle("fa-bars");
+        menuIcon.classList.toggle("fa-times");
+      });
+    </script>
+  </body>
+</html>
