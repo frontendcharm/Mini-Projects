@@ -1,0 +1,71 @@
+body {
+  background-color: #000;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+button {
+  position: relative;
+  outline: none;
+  border-radius: 50px;
+  border: 5px solid #CE6A93;
+  display: flex;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 60px;
+  width: 210px;
+  opacity: 1;
+  background-color: #FFBAD6;
+}
+button:hover {
+  animation: rotate 0.7s ease-in-out both;
+}
+button span {
+  color: #151515;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  margin: auto;
+}
+button:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
