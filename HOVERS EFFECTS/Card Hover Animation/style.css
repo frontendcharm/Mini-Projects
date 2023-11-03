@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: #151515;
+}
+
+.card {
+  position: relative;
+  width: 325px;
+  height: 450px;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.54);
+}
+.card .poster {
+  position: relative;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.card .poster::before {
+  content: "";
+  position: absolute;
+  bottom: -45%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.3s;
+}
+.card .poster img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.card:hover .poster::before {
+  bottom: 0;
+}
+.card:hover .poster img {
+  transform: scale(1.1);
+}
+.card .details {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 1.5em 1.5em 2em;
+  background: rgba(0, 0, 0, 0.6666666667);
+  backdrop-filter: blur(16px) saturate(120%);
+  transition: 0.3s;
+  color: #fff;
+  z-index: 2;
+}
+.card .details h1 {
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+.card .details h2 {
+  font-weight: 400;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+  opacity: 0.6;
+}
+.card .details .rating {
+  position: relative;
+  margin-bottom: 0.8em;
+  display: flex;
+  gap: 0.25em;
+}
+.card .details .rating i {
+  color: #e3c414;
+}
+.card .details .rating span {
+  margin-left: 0.25em;
+}
+.card .details .desc {
+  color: #fff;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
+}
+.card .details button {
+  outline: none;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+}
+.card:hover .details {
+  bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
