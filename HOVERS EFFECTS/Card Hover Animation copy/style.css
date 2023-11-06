@@ -1,0 +1,51 @@
+@property --bg-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  background: #000;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+main article {
+  border-radius: 1rem;
+  color: white;
+  padding: 1.2rem;
+  width: min(450px, 90vw);
+  text-align: center;
+  cursor: pointer;
+  animation: spin 2.5s infinite linear paused;
+  background: linear-gradient(to bottom, oklch(0 0 0/0.9), oklch(0 0 0/0.9)) padding-box, conic-gradient(from var(--bg-angle) in oklch longer hue, oklch(1 0.37 0) 0 0) border-box;
+  border: 6px solid transparent;
+}
+main article:hover {
+  animation-play-state: running;
+}
+main article h1 {
+  line-height: 1.1;
+  margin: 0;
+}
+
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
