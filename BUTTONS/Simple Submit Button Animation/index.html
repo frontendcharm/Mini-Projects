@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Simple Submit Button Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <button id="button"></button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("button");
+
+        function addClassWithTimeout(className, timeout, callback) {
+          button.classList.add(className);
+          setTimeout(() => {
+            button.classList.remove(className);
+            callback && callback();
+          }, timeout);
+        }
+
+        button.addEventListener("click", function () {
+          addClassWithTimeout("clicked", 2250, () =>
+            addClassWithTimeout("validate", 2250)
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+$btn-color: #23d3fb;
+$bg-color: #151515;
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: $bg-color;
+}
+
+button {
+    outline: none;
+    height: 50px;
+    width: 130px;
+    color: $btn-color;
+    background: $bg-color;
+    border: 2px solid $btn-color;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+        color: $bg-color;
+        background: $btn-color;
+    }
+
+    &:active {
+        letter-spacing: 2px;
+    }
+
+    &::after {
+        content: "SUBMIT";
+    }
+}
+
+.clicked {
+    width: 50px;
+    border-color: rgba(225, 225, 225, .3);
+    border-width: 5px;
+    font-size: 0;
+    border-left-color: $btn-color;
+    animation: rotating 2s 0.25s linear infinite;
+
+    &::after {
+        content: "";
+    }
+
+    &:hover {
+        color: $btn-color;
+        background: $bg-color;
+    }
+}
+
+.validate {
+    font-size: 20px;
+    color: $bg-color;
+    background: $btn-color;
+
+    &::after {
+        font-family: "FontAwesome";
+        content: "\f00c";
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
