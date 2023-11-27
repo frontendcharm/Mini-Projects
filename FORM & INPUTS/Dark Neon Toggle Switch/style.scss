@@ -1,0 +1,231 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+$hue: 223;
+$off-hue: 3;
+$on-hue1: 123;
+$on-hue2: 168;
+$fg: hsl($hue, 10%, 90%);
+$primary: hsl($hue, 90%, 50%);
+$trans-dur: 0.6s;
+$trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
+$font-size: calc(40px + (60 - 40) * (100vw - 320px) / (2560 - 320));
+
+:root {
+    --hue: #{$hue};
+    --off-hue: #{$off-hue};
+    --on-hue1: #{$on-hue1};
+    --on-hue2: #{$on-hue2};
+    --fg: hsl(var(--hue), 10%, 90%);
+    --primary: hsl(var(--hue), 90%, 50%);
+    --trans-dur: #{$trans-dur};
+    --trans-timing: #{$trans-timing};
+    font-size: #{$font-size};
+}
+
+body,
+input {
+    font: 1em/1.5 sans-serif;
+}
+
+body {
+    background-image: linear-gradient(45deg,
+            hsl(var(--hue), 10%, 20%),
+            hsl(var(--hue), 10%, 10%));
+    color: var(--fg);
+    display: flex;
+    height: 100vh;
+    transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+.switch,
+.switch__input {
+    -webkit-tap-highlight-color: #0000;
+}
+
+.switch {
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 5em;
+    height: 3em;
+    cursor: pointer;
+
+    &__base-outer,
+    &__base-inner {
+        display: block;
+        position: absolute;
+    }
+
+    &__base-outer {
+        border-radius: 1.25em;
+        box-shadow: -0.125em -0.125em 0.25em hsl(var(--hue), 10%, 30%),
+            0.125em 0.125em 0.125em hsl(var(--hue), 10%, 30%) inset,
+            0.125em 0.125em 0.25em hsl(0, 0%, 0%),
+            -0.125em -0.125em 0.125em hsl(var(--hue), 10%, 5%) inset;
+        top: 0.125em;
+        left: 0.125em;
+        width: 4.75em;
+        height: 2.75em;
+    }
+
+    &__base-inner {
+        border-radius: 1.125em;
+        box-shadow: -0.25em -0.25em 0.25em hsl(var(--hue), 10%, 30%) inset,
+            0.0625em 0.0625em 0.125em hsla(var(--hue), 10%, 30%),
+            0.125em 0.25em 0.25em hsl(var(--hue), 10%, 5%) inset,
+            -0.0625em -0.0625em 0.125em hsla(var(--hue), 10%, 5%);
+        top: 0.375em;
+        left: 0.375em;
+        width: 4.25em;
+        height: 2.25em;
+    }
+
+    &__base-neon {
+        display: block;
+        overflow: visible;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+
+        path {
+            stroke-dasharray: 0 104.26 0;
+            transition: stroke-dasharray var(--trans-dur) var(--trans-timing);
+        }
+    }
+
+    &__input {
+        outline: transparent;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+
+        &:before {
+            border-radius: 0.125em;
+            box-shadow: 0 0 0 0.125em hsla(var(--hue), 90%, 50%, 0);
+            content: "";
+            display: block;
+            position: absolute;
+            inset: -0.125em;
+            transition: box-shadow 0.15s linear;
+        }
+
+        &:focus-visible:before {
+            box-shadow: 0 0 0 0.125em var(--primary);
+        }
+    }
+
+    &__knob,
+    &__knob-container {
+        border-radius: 1em;
+        display: block;
+        position: absolute;
+    }
+
+    &__knob {
+        background-color: hsl(var(--hue), 10%, 15%);
+        background-image: radial-gradient(88% 88% at 50% 50%,
+                hsl(var(--hue), 10%, 20%) 47%,
+                hsla(var(--hue), 10%, 20%, 0) 50%),
+            radial-gradient(88% 88% at 47% 47%,
+                hsl(var(--hue), 10%, 85%) 45%,
+                hsla(var(--hue), 10%, 85%, 0) 50%),
+            radial-gradient(65% 70% at 40% 60%,
+                hsl(var(--hue), 10%, 20%) 46%,
+                hsla(var(--hue), 10%, 20%, 0) 50%);
+        box-shadow: -0.0625em -0.0625em 0.0625em hsl(var(--hue), 10%, 15%) inset,
+            -0.125em -0.125em 0.0625em hsl(var(--hue), 10%, 5%) inset,
+            0.75em 0.25em 0.125em hsla(0, 0%, 0%, 0.8);
+        width: 2em;
+        height: 2em;
+        transition: transform var(--trans-dur) var(--trans-timing);
+    }
+
+    &__knob-container {
+        overflow: hidden;
+        top: 0.5em;
+        left: 0.5em;
+        width: 4em;
+        height: 2em;
+    }
+
+    &__knob-neon {
+        display: block;
+        width: 2em;
+        height: auto;
+
+        circle {
+            opacity: 0;
+            stroke-dasharray: 0 90.32 0 54.19;
+            transition: opacity var(--trans-dur) steps(1, end),
+                stroke-dasharray var(--trans-dur) var(--trans-timing);
+        }
+    }
+
+    &__knob-shadow {
+        border-radius: 50%;
+        box-shadow: 0.125em 0.125em 0.125em hsla(0, 0%, 0%, 0.9);
+        display: block;
+        position: absolute;
+        top: 0.5em;
+        left: 0.5em;
+        width: 2em;
+        height: 2em;
+        transition: transform var(--trans-dur) var(--trans-timing);
+    }
+
+    &__led {
+        background-color: hsl(var(--off-hue), 90%, 70%);
+        border-radius: 50%;
+        box-shadow: 0 -0.0625em 0.0625em hsl(var(--off-hue), 90%, 40%) inset,
+            0 0 0.125em hsla(var(--off-hue), 90%, 70%, 0.3),
+            0 0 0.125em hsla(var(--off-hue), 90%, 70%, 0.3),
+            0.125em 0.125em 0.125em hsla(0, 0%, 0%, 0.5);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0.25em;
+        height: 0.25em;
+        transition: background-color var(--trans-dur) var(--trans-timing),
+            box-shadow var(--trans-dur) var(--trans-timing);
+    }
+
+    &__text {
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+    }
+
+    &__input:checked~&__led {
+        background-color: hsl(var(--on-hue1), 90%, 70%);
+        box-shadow: 0 -0.0625em 0.0625em hsl(var(--on-hue1), 90%, 40%) inset,
+            0 -0.125em 0.125em hsla(var(--on-hue1), 90%, 70%, 0.3),
+            0 0.125em 0.125em hsla(var(--on-hue1), 90%, 70%, 0.3),
+            0.125em 0.125em 0.125em hsla(0, 0%, 0%, 0.5);
+    }
+
+    &__input:checked~&__base-neon path {
+        stroke-dasharray: 52.13 0 52.13;
+    }
+
+    &__input:checked~.switch__knob-shadow,
+    &__input:checked~.switch__knob-container .switch__knob {
+        transform: translateX(100%);
+    }
+
+    &__input:checked~.switch__knob-container .switch__knob-neon circle {
+        opacity: 1;
+        stroke-dasharray: 45.16 0 45.16 54.19;
+        transition-timing-function: steps(1, start), var(--trans-timing);
+    }
+}

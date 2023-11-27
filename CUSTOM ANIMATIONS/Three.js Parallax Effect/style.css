@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+}
+
+html {
+  font-size: max(18px, 2.5vw);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Asap", sans-serif;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+a {
+  color: white;
+}
+
+#container {
+  position: relative;
+  z-index: 0;
+}
+
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 3vw 0;
+  z-index: 1;
+}
+
+h1,
+h2 {
+  filter: drop-shadow(0 0 2px black);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 1rem 0;
+}
+
+.sample_wrap {
+  margin: 3rem 0;
+}
+
+.sample_img {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.img {
+  width: 35vw;
+  height: auto;
+  margin: 1rem 0;
+  border: 3px solid white;
+}
+
+#arrow {
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  right: 0;
+  font-size: 20vmin;
+  filter: drop-shadow(0 0 1px black);
+  transform-origin: center center;
+  transform: rotate(90deg);
+  animation: arrow 0.8s 0s ease infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
