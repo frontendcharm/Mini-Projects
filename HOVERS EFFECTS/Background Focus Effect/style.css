@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap");
+
+:root {
+    --x: 50%;
+    --y: 50%;
+    --blur: 0.7vmax;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    overflow: hidden;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Lexend", serif;
+    display: grid;
+    place-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    z-index: 1;
+}
+
+h1 {
+    font-size: max(10vw, 60px);
+    color: #fff;
+}
+
+.bg,
+.bg_mask {
+    position: absolute;
+    inset: 0;
+    margin: calc(var(--blur) * -1);
+    background: url(https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center/cover;
+}
+
+.bg {
+    filter: blur(var(--blur));
+}
+
+.bg_mask {
+    mask-image: radial-gradient(circle 50vmin at var(--x) var(--y),
+            black 20vmin,
+            transparent);
+}

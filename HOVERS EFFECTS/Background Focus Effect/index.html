@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Background Focus Effect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="bg"></div>
+    <div class="bg_mask"></div>
+    <main>
+      <h1>Focus</h1>
+    </main>
+
+    <script>
+      "use strict";
+      console.clear();
+
+      var root = document.querySelector(":root");
+      function spotlight(e) {
+        root.style.setProperty("--x", e.pageX + "px");
+        root.style.setProperty("--y", e.pageY + "px");
+      }
+      window.addEventListener("pointermove", spotlight);
+      window.addEventListener("pointerdown", spotlight);
+    </script>
+  </body>
+</html>
