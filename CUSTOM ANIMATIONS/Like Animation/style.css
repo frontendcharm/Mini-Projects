@@ -1,0 +1,88 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #151515;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.like {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.like svg {
+  margin: 11px 9px 7px 9px;
+  transform: translate3d(0, 0, 0);
+}
+
+.like svg .heart {
+  opacity: 1;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.like svg .thread {
+  stroke-dashoffset: 87;
+  stroke-dasharray: 87;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+
+.like.liked svg {
+  animation: bounce 0.8s ease;
+}
+
+.like.liked .heart {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.like.liked .thread {
+  animation: threadheart 0.6s ease-in forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes threadheart {
+  0% {
+    fill: rgba(255, 48, 64, 0);
+    transform: scale(0.5);
+    stroke-dashoffset: 87;
+  }
+
+  95% {
+    fill: rgba(255, 48, 64, 0);
+    transform: scale(1);
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    fill: #ff3040;
+    transform: scale(1);
+    stroke-dashoffset: 0;
+  }
+}

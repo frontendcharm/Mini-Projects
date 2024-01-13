@@ -1,0 +1,224 @@
+:root {
+    --w: #fafafa;
+    --b: #141414;
+    --s: 1s;
+    --d: calc(var(--s) / 6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body,
+.dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input:checked~div {
+    filter: invert(1);
+}
+
+input:checked+.bg::before {
+    content: "CLICK TO DARK";
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: var(--b);
+    z-index: -2;
+}
+
+.bg::before {
+    content: "CLICK TO LIGHT";
+    position: absolute;
+    color: var(--w);
+    width: 100%;
+    text-align: center;
+    bottom: 10vh;
+    font-family: Arial, Helvetica, serif;
+    font-size: 12px;
+    text-shadow: 0 0 1px var(--w);
+    opacity: 0.25;
+}
+
+.dots {
+    width: 50vmin;
+    height: 50vmin;
+    position: relative;
+}
+
+.dots .dot {
+    width: 50%;
+    position: absolute;
+    height: 7vmin;
+    left: 0;
+    transform-origin: 100% 50%;
+    z-index: -1;
+    animation: over-ring calc(var(--s) * 2) linear 0s infinite, spin calc(var(--s) * 8) linear 0s infinite;
+}
+
+.dots .dot::before {
+    content: "";
+    width: 5.5vmin;
+    height: 5.5vmin;
+    left: 0;
+    box-sizing: border-box;
+    border: 1vmin solid var(--b);
+    position: absolute;
+    background: var(--w);
+    border-radius: 100%;
+    animation: ball var(--s) ease-in-out 0s infinite alternate;
+}
+
+.dots .dot:nth-child(1) {
+    animation-delay: calc(var(--d) * 0), calc(var(--d) * 0);
+}
+
+.dots .dot:nth-child(1)::before {
+    animation-delay: calc(var(--d) * 0);
+}
+
+.dots .dot:nth-child(2) {
+    animation-delay: calc(var(--d) * -1), calc(var(--d) * -4);
+}
+
+.dots .dot:nth-child(2)::before {
+    animation-delay: calc(var(--d) * -1);
+}
+
+.dots .dot:nth-child(3) {
+    animation-delay: calc(var(--d) * -2), calc(var(--d) * -8);
+}
+
+.dots .dot:nth-child(3)::before {
+    animation-delay: calc(var(--d) * -2);
+}
+
+.dots .dot:nth-child(4) {
+    animation-delay: calc(var(--d) * -3), calc(var(--d) * -12);
+}
+
+.dots .dot:nth-child(4)::before {
+    animation-delay: calc(var(--d) * -3);
+}
+
+.dots .dot:nth-child(5) {
+    animation-delay: calc(var(--d) * -4), calc(var(--d) * -16);
+}
+
+.dots .dot:nth-child(5)::before {
+    animation-delay: calc(var(--d) * -4);
+}
+
+.dots .dot:nth-child(6) {
+    animation-delay: calc(var(--d) * -5), calc(var(--d) * -20);
+}
+
+.dots .dot:nth-child(6)::before {
+    animation-delay: calc(var(--d) * -5);
+}
+
+.dots .dot:nth-child(7) {
+    animation-delay: calc(var(--d) * -6), calc(var(--d) * -24);
+}
+
+.dots .dot:nth-child(7)::before {
+    animation-delay: calc(var(--d) * -6);
+}
+
+.dots .dot:nth-child(8) {
+    animation-delay: calc(var(--d) * -7), calc(var(--d) * -28);
+}
+
+.dots .dot:nth-child(8)::before {
+    animation-delay: calc(var(--d) * -7);
+}
+
+.dots .dot:nth-child(9) {
+    animation-delay: calc(var(--d) * -8), calc(var(--d) * -32);
+}
+
+.dots .dot:nth-child(9)::before {
+    animation-delay: calc(var(--d) * -8);
+}
+
+.dots .dot:nth-child(10) {
+    animation-delay: calc(var(--d) * -9), calc(var(--d) * -36);
+}
+
+.dots .dot:nth-child(10)::before {
+    animation-delay: calc(var(--d) * -9);
+}
+
+.dots .dot:nth-child(11) {
+    animation-delay: calc(var(--d) * -10), calc(var(--d) * -40);
+}
+
+.dots .dot:nth-child(11)::before {
+    animation-delay: calc(var(--d) * -10);
+}
+
+.dots .dot:nth-child(12) {
+    animation-delay: calc(var(--d) * -11), calc(var(--d) * -44);
+}
+
+.dots .dot:nth-child(12)::before {
+    animation-delay: calc(var(--d) * -11);
+}
+
+.dots .ring {
+    border: 1.5vmin solid var(--w);
+    width: 64%;
+    height: 64%;
+    border-radius: 100%;
+    z-index: 0;
+    box-shadow: 0 0 0 1vmin var(--b), 0 0 0 1vmin var(--b) inset;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes ball {
+    100% {
+        left: 12vmin;
+        width: 4vmin;
+        height: 4vmin;
+    }
+}
+
+@keyframes over-ring {
+
+    0%,
+    50% {
+        z-index: -1;
+    }
+
+    51%,
+    100% {
+        z-index: 1;
+    }
+}

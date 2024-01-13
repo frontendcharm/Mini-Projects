@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Like Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="like" onclick="toggleLike(this)">
+      <svg
+        width="24"
+        height="22"
+        viewBox="0 0 24 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.5 7.827C1.5 4.0992 3.5 1.5 7.54036 1.5C10 1.5 11.5646 2.93172 13.5323 5.5C15.5 8.06828 16 12 12 12C8 12 8.5 7.827 10.4677 5.5C12 3.5 14 1.5 16.4596 1.5C20.5 1.5 22.5 4.0992 22.5 7.827C22.5 14.5 12.525 20.5 12 20.5C11.475 20.5 1.5 14.5 1.5 7.827Z"
+          stroke="#FF3040"
+          stroke-width="3"
+          class="thread"
+        />
+        <path
+          d="M1 7.66C1 12.235 4.899 16.746 10.987 20.594C11.325 20.797 11.727 21 12 21C12.283 21 12.686 20.797 13.013 20.594C19.1 16.746 23 12.234 23 7.66C23 3.736 20.245 1 16.672 1C14.603 1 12.98 1.94 12 3.352C11.042 1.952 9.408 1 7.328 1C3.766 1 1 3.736 1 7.66Z"
+          stroke="white"
+          stroke-width="2"
+          class="heart"
+        />
+      </svg>
+    </div>
+
+    <script>
+      function toggleLike(element) {
+        element.classList.toggle("liked");
+      }
+    </script>
+  </body>
+</html>
