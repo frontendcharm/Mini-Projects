@@ -1,0 +1,15 @@
+body .darkmode {
+  display: inline-block;
+  font-size: 2rem;
+  padding: 1rem 1rem 0.75rem 1rem;
+  cursor: pointer;
+}
+body .darkmode .light,
+body .darkmode .dark {
+  display: none;
+}
+body.dark .darkmode .light, body:not(.dark) .darkmode .dark {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=style.css.map */

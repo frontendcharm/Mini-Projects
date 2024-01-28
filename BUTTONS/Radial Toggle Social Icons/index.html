@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Radial Toggle Social Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="buttons">
+      <button class="buttons__toggle"><i class="fa fa-share-alt"></i></button>
+      <div class="buttons__ctas">
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-facebook-f"></i>Facebook</a
+        >
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-twitter"></i>Twitter</a
+        >
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-instagram"></i>Instagram</a
+        >
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-youtube"></i>YouTube</a
+        >
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-tiktok"></i>TikTok</a
+        >
+        <a class="buttons__cta" href="#"
+          ><i class="fa-brands fa-linkedin-in"></i>LinkedIn</a
+        >
+      </div>
+    </div>
+
+    <script>
+      const buttonsComponent = document.querySelector(".buttons");
+      const buttonsToggle = document.querySelector(".buttons__toggle");
+
+      buttonsToggle.addEventListener("click", toggleButtons);
+
+      function toggleButtons() {
+        buttonsToggle.classList.toggle("buttons__toggle--active");
+        buttonsComponent.classList.toggle("buttons--active");
+        document.activeElement.blur();
+      }
+    </script>
+  </body>
+</html>

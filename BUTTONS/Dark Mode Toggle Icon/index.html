@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Dark Mode Toggle Icon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="darkmode">
+      <div class="light fa-regular fa-sun"></div>
+      <div class="dark fa-regular fa-moon"></div>
+    </div>
+
+    <script>
+      document
+        .querySelector(".darkmode")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("dark");
+
+          const isDarkMode = document.body.classList.contains("dark");
+          document.body.style.background = isDarkMode ? "#202225" : "#f9f9f9";
+          document.body.style.color = isDarkMode ? "#f9f9f9" : "#202225";
+        });
+    </script>
+  </body>
+</html>

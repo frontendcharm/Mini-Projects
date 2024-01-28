@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Intro Text Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  </head>
+
+  <body>
+    <section class="splash">
+      <h1>The world is <span>complicated</span>.</h1>
+      <div class="splash__bg">
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+        <span class="js-circle"></span>
+      </div>
+    </section>
+
+    <script>
+      const circleEls = document.querySelectorAll(".js-circle");
+      const circleTl = gsap.timeline({ repeat: -1, yoyo: true });
+
+      let circleSize = 1;
+      circleEls.forEach((circle) => {
+        gsap.set(circle, { scale: circleSize });
+        circleSize += 0.5;
+      });
+
+      circleTl.from(circleEls, {
+        scale: 1,
+        stagger: 0.175,
+        duration: 0.6,
+        ease: Power3.inOut,
+      });
+    </script>
+  </body>
+</html>
