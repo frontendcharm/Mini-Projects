@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Rollback Toggle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <label class="switch">
+      <input class="switch__input" id="dummy" type="checkbox" role="switch" />
+      <span class="switch__shadow">
+        <span class="switch__shadow-inner"></span>
+      </span>
+      <span class="switch__ball-shadow"></span>
+      <span class="switch__ball-shadow-outer"></span>
+      <span class="switch__ball">
+        <span class="switch__ball-texture"></span>
+      </span>
+      <span class="switch__label">Toggle</span>
+    </label>
+
+    <script>
+      "use strict";
+      window.addEventListener("DOMContentLoaded", () => {
+        const rt = new RollbackToggle("#dummy");
+      });
+      class RollbackToggle {
+        constructor(el) {
+          var _a;
+
+          this.restoreTimeout = 0;
+          this.input = document.querySelector(el);
+          (_a = this.input) === null || _a === void 0
+            ? void 0
+            : _a.addEventListener("change", this.run.bind(this));
+        }
+
+        get restoreTime() {
+          if (!this.input) return 1;
+          const dur = window
+            .getComputedStyle(this.input)
+            .getPropertyValue("--dur");
+          const isMs = dur.indexOf("ms") > -1;
+          const unit = isMs ? "ms" : "s";
+          let value = +dur.substring(0, dur.indexOf(unit));
+          if (!isMs) value *= 1e3;
+          return value;
+        }
+        run() {
+          if (this.input) {
+            this.input.disabled = true;
+            this.restoreTimeout = setTimeout(
+              this.restore.bind(this),
+              this.restoreTime
+            );
+          }
+        }
+
+        restore() {
+          if (this.input) {
+            this.input.checked = false;
+            this.input.disabled = false;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

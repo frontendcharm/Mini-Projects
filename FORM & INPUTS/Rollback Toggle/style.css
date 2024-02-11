@@ -1,0 +1,336 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 223;
+  --trans-dur: 0.3s;
+  font-size: calc(48px + (96 - 48) * (100vw - 320px) / (2560 - 320));
+}
+
+body,
+input {
+  color: hsl(var(--hue), 90%, 10%);
+  font: 1em/1.5 sans-serif;
+}
+
+body {
+  background-image: linear-gradient(45deg,
+      hsl(var(--hue), 90%, 67%),
+      hsl(var(--hue), 90%, 70%));
+  display: flex;
+  height: 100vh;
+}
+
+.switch {
+  --dur: 2.5s;
+  margin: auto;
+  position: relative;
+}
+
+.switch__ball,
+.switch__ball:before,
+.switch__ball-shadow,
+.switch__ball-shadow:before,
+.switch__ball-shadow-outer,
+.switch__ball-texture,
+.switch__label,
+.switch__shadow,
+.switch__shadow:before,
+.switch__shadow:after,
+.switch__shadow-inner {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.switch__ball,
+.switch__ball:before,
+.switch__ball-shadow,
+.switch__ball-shadow-outer,
+.switch__shadow {
+  border-radius: 50%;
+  pointer-events: none;
+  width: 1.375em;
+  height: 1.375em;
+}
+
+.switch__ball,
+.switch__shadow {
+  overflow: hidden;
+}
+
+.switch__ball,
+.switch__ball-shadow,
+.switch__ball-shadow-outer {
+  z-index: 3;
+}
+
+.switch__ball {
+  top: 0.0625em;
+  left: 0.0625em;
+}
+
+.switch__ball:before {
+  background-image: linear-gradient(60deg,
+      hsl(var(--hue), 90%, 10%, 0.2),
+      hsla(var(--hue), 90%, 10%, 0));
+  box-shadow: 0.125em -0.0625em 0.125em hsla(var(--hue), 90%, 70%, 0.5) inset,
+    0.25em -0.125em 0.25em hsla(var(--hue), 90%, 10%, 0.5) inset,
+    -0.0625em 0.0625em 0.0625em rgba(255, 255, 255, 0.7) inset;
+  content: "";
+  z-index: 1;
+}
+
+.switch__ball-shadow {
+  top: 0.0625em;
+  left: 0.0625em;
+  width: 0.6875em;
+}
+
+.switch__ball-shadow:before {
+  background-color: hsla(var(--hue), 90%, 40%, 0.7);
+  border-radius: 100% 0 0 100%/50% 0 0 50%;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: rotate(-15deg) scale(1.15, 1);
+  transform-origin: 100% 50%;
+}
+
+.switch__ball-shadow-outer {
+  box-shadow: 0 0 0.25em hsl(var(--hue), 90%, 30%);
+  top: 0.3125em;
+  left: 0.0625em;
+  width: 0.875em;
+  height: 0.875em;
+}
+
+.switch__ball-texture {
+  background: url("https://assets.codepen.io/416221/speckled.jpg") 0 0/100% 100%;
+  right: 0;
+  left: auto;
+  width: 300%;
+  height: 100%;
+}
+
+.switch,
+.switch__input {
+  border-radius: 50%;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch__input,
+.switch__shadow,
+.switch__shadow-inner {
+  border-radius: 0.75em;
+  width: 3em;
+  height: 1.5em;
+}
+
+.switch__input {
+  box-shadow: -0.125em 0.25em 0.25em hsl(var(--hue), 90%, 63%) inset,
+    -0.125em -0.125em 0.25em hsl(var(--hue), 90%, 68%) inset,
+    0 -0.0625em 0.125em hsl(var(--hue), 90%, 60%),
+    0 0 0.25em hsl(var(--hue), 90%, 78%);
+  cursor: pointer;
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.switch__input:before,
+.switch__input:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+}
+
+.switch__input:before {
+  border-radius: 50% 0 0 50%;
+  box-shadow: 0.0625em 0.0625em 0.0625em hsla(var(--hue), 90%, 40%, 0.5) inset;
+  -webkit-mask: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, black);
+  mask: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, black);
+}
+
+.switch__input:after {
+  background: linear-gradient(69deg,
+      hsla(var(--hue), 90%, 30%, 0) 60%,
+      hsla(var(--hue), 90%, 30%, 0.75) 65%,
+      hsla(var(--hue), 90%, 30%, 1) 80%);
+  border-radius: 0 50% 50% 50%;
+  box-shadow: -0.0625em 0.0625em 0.0625em hsl(var(--hue), 90%, 70%) inset;
+  clip-path: polygon(16% 0, 100% 0, 100% 100%, 65% 100%);
+  -webkit-mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 20%, black);
+  mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 20%, black);
+  opacity: 0;
+  right: 0;
+}
+
+.switch__input:checked~.switch__ball,
+.switch__input:checked~.switch__ball-shadow,
+.switch__input:checked~.switch__ball-shadow:before,
+.switch__input:checked~.switch__ball-shadow-outer,
+.switch__input:checked~.switch__ball .switch__ball-texture,
+.switch__input:checked:before,
+.switch__input:checked:after {
+  animation: ball-roll var(--dur) forwards;
+}
+
+.switch__input:checked~.switch__ball-shadow {
+  animation-name: ball-roll-shadow;
+}
+
+.switch__input:checked~.switch__ball-shadow:before {
+  animation-name: ball-roll-shadow-tilt;
+}
+
+.switch__input:checked~.switch__ball .switch__ball-texture {
+  animation-name: ball-roll-texture;
+}
+
+.switch__input:checked:before {
+  animation-name: ball-input-before;
+}
+
+.switch__input:checked:after {
+  animation-name: ball-input-after;
+}
+
+.switch__input:disabled {
+  cursor: not-allowed;
+}
+
+.switch__label {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.switch__shadow:before,
+.switch__shadow:after {
+  content: "";
+}
+
+.switch__shadow:before {
+  background-color: hsl(var(--hue), 70%, 50%);
+  border-radius: 0.5em;
+  top: -0.25em;
+  left: 0.25em;
+  width: 2em;
+  height: 0.5em;
+}
+
+.switch__shadow:after {
+  box-shadow: -0.5em 0 0 hsl(var(--hue), 70%, 50%) inset;
+  border-radius: 0 50% 0 15%;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: 1em;
+  height: 1.5em;
+  transform: rotate(-24deg);
+}
+
+.switch__shadow-inner {
+  box-shadow: -0.0625em 0.0625em 0 hsl(var(--hue), 70%, 45%) inset;
+  z-index: 1;
+}
+
+/* Animation */
+@keyframes ball-input-before {
+
+  from,
+  to {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+
+  15% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes ball-input-after {
+
+  from,
+  7.5%,
+  45%,
+  to {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+
+  15% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes ball-roll {
+
+  from,
+  to {
+    animation-timing-function: linear;
+    transform: translateX(0);
+  }
+
+  15% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    transform: translateX(1.5em);
+  }
+}
+
+@keyframes ball-roll-shadow {
+
+  from,
+  to {
+    animation-timing-function: linear;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  15% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    opacity: 0.7;
+    transform: translateX(1.5em);
+  }
+}
+
+@keyframes ball-roll-shadow-tilt {
+
+  from,
+  to {
+    animation-timing-function: linear;
+    transform: rotate(-15deg) translateY(0) scale(1.15, 1);
+  }
+
+  7.5%,
+  30% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    transform: rotate(-15deg) translateY(5%) scale(1.75, 0.9325);
+  }
+}
+
+@keyframes ball-roll-texture {
+
+  from,
+  to {
+    animation-timing-function: linear;
+    transform: translateX(0);
+  }
+
+  15% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    transform: translateX(33.33%);
+  }
+}
