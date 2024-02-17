@@ -1,0 +1,132 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 90%);
+    --fg: hsl(var(--hue), 90%, 10%);
+    --primary: hsl(var(--hue), 90%, 50%);
+    --trans-dur: 0.3s;
+    font-size: calc(16px + (32 - 16) * (100vw - 320px) / (2560 - 320));
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    display: flex;
+    font: 1em/1.5 sans-serif;
+    height: 100vh;
+    transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+$debug: false;
+$linear: linear;
+$easeIn: cubic-bezier(0.32, 0, 0.67, 0);
+$easeOut: cubic-bezier(0.33, 1, 0.68, 1);
+
+.ping-pong {
+    @if $debug ==true {
+        outline: 1px solid;
+        overflow: visible;
+    }
+
+    display: block;
+    margin: auto;
+    width: 8em;
+    height: 8em;
+
+    &__ball,
+    &__paddle {
+
+        &-x,
+        &-y {
+            animation: ping-pong-ball-x 1.5s $linear infinite;
+        }
+    }
+
+    &__ball {
+        &-y {
+            animation-name: ping-pong-ball-y;
+        }
+    }
+
+    &__paddle {
+        &-x {
+            animation-name: ping-pong-paddle-x;
+            animation-timing-function: $easeOut;
+        }
+
+        &-y {
+            animation-name: ping-pong-paddle-y;
+        }
+    }
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue), 90%, 10%);
+        --fg: hsl(var(--hue), 90%, 90%);
+    }
+}
+
+/* Animation */
+@keyframes ping-pong-ball-x {
+
+    from,
+    to {
+        transform: translate(40px, 80px);
+    }
+
+    50% {
+        transform: translate(88px, 80px);
+    }
+}
+
+@keyframes ping-pong-ball-y {
+
+    from,
+    50%,
+    to {
+        animation-timing-function: $easeOut;
+        transform: translate(0, 0);
+    }
+
+    25%,
+    75% {
+        animation-timing-function: $easeIn;
+        transform: translate(0, -68px);
+    }
+}
+
+@keyframes ping-pong-paddle-x {
+
+    from,
+    to {
+        transform: translate(36px, 92px) rotate(6deg);
+    }
+
+    50% {
+        transform: translate(92px, 92px) rotate(-6deg);
+    }
+}
+
+@keyframes ping-pong-paddle-y {
+
+    from,
+    50%,
+    to {
+        animation-timing-function: $easeOut;
+        transform: translate(0, 0);
+    }
+
+    25%,
+    75% {
+        animation-timing-function: $easeIn;
+        transform: translate(0, 28px);
+    }
+}
