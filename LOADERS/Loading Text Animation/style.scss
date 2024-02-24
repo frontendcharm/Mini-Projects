@@ -1,0 +1,72 @@
+$text: #74CCFF;
+$count: 40;
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: #000;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    text-size-adjust: none;
+}
+
+#shimmerWave {
+    color: $text;
+    font-size: 1.6rem;
+    font-family: "Open-Sans", sans-serif;
+    font-weight: 700;
+    perspective: 80px;
+    transform-style: preserve-3d;
+
+    span {
+        position: relative;
+        transition: all 0.3s ease;
+        display: inline-block;
+        animation: wave 2.4s ease infinite;
+        letter-spacing: 0.01em;
+        transform-origin: 100% 50%;
+        transform-style: preserve-3d;
+
+        @for $i from 1 through $count {
+            &:nth-child(#{$i}) {
+                animation-delay: 0.05s * ($i - 1);
+            }
+        }
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+        color: $text;
+        text-shadow: 0 0 0 rgba($text, 0);
+    }
+
+    12% {
+        transform: translate3D(2px, -2px, 3px) scale(1.16) rotateY(6deg);
+        color: lighten($text, 54%);
+    }
+
+    15% {
+        text-shadow: 0 0 2px lighten($text, 30%);
+    }
+
+    24% {
+        transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+        color: lighten($text, 10%);
+        opacity: 1;
+    }
+
+    36% {
+        transform: translate3D(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
