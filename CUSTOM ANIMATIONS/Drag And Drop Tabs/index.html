@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Drag & Drop Tabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+  </head>
+
+  <body>
+    <div id="team-members">
+      <article class="team-member">
+        <img
+          class="team-member-avatar"
+          src="https://eu.ui-avatars.com/api/?name=John Potts&background=0D8ABC&color=fff&amp;size=250"
+          alt="Team Member"
+        />
+        <div class="team-member-name">
+          <h3>John Potts</h3>
+          <p>Backend Developer</p>
+        </div>
+      </article>
+
+      <article class="team-member">
+        <img
+          class="team-member-avatar"
+          src="https://eu.ui-avatars.com/api/?name=Tiffany Duran&background=FF5C8F&color=fff&amp;size=250"
+          alt="Team Member"
+        />
+        <div class="team-member-name">
+          <h3>Tiffany Duran</h3>
+          <p>Frontend Developer</p>
+        </div>
+      </article>
+
+      <article class="team-member">
+        <img
+          class="team-member-avatar"
+          src="https://eu.ui-avatars.com/api/?name=Veronica Conway&background=9F86C0&color=fff&amp;size=250"
+          alt="Team Member"
+        />
+        <div class="team-member-name">
+          <h3>Veronica Conway</h3>
+          <p>Project Manager</p>
+        </div>
+      </article>
+    </div>
+
+    <script>
+      const dragAndDropItems = document.getElementById("team-members");
+
+      new Sortable(dragAndDropItems, {
+        animation: 350,
+        chosenClass: "team-member-chosen",
+        dragClass: "team-member-drag",
+      });
+    </script>
+  </body>
+</html>

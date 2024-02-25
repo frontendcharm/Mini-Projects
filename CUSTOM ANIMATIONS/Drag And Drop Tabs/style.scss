@@ -1,0 +1,89 @@
+:root {
+  --background: #edeef7;
+  --gray: #edeef7;
+  --white: #ffffff;
+  --poppins: "Poppins", sans-serif;
+  --shadow-opacity: 0.3;
+  --blur: 10px;
+}
+
+body {
+  font-family: var(--poppins), sans-serif;
+  font-size: 1rem;
+  background-image: url("https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2565&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#team-members {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 550px;
+  margin: auto;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(var(--blur));
+  border-radius: 10px;
+  border: 1px solid rgba(white, 0.08);
+  filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, var(--shadow-opacity)));
+}
+
+.team-member {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: 60px;
+  padding: 16px;
+  background-color: var(--white);
+  border-radius: 24px;
+  font-size: 16px;
+  z-index: 1;
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &-avatar {
+    width: 3.75rem;
+    height: 3.75rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &-name {
+    display: grid;
+    gap: 0.125rem;
+
+    h3 {
+      font-size: large;
+    }
+
+    p {
+      font-size: smaller;
+    }
+  }
+
+  &-chosen {
+    box-shadow: 8px 8px 32px rgba(black, 0.3);
+  }
+
+  &-drag {
+    opacity: 0;
+  }
+}
