@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900wght&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: #222;
+}
+
+.box {
+  position: absolute;
+  width: 80px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  border-radius: 50px;
+  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.5);
+}
+
+.spinner {
+  position: relative;
+  width: 40px;
+  gap: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+}
+
+.progress {
+  position: relative;
+  width: 10px;
+  background: #222;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.progress #meter {
+  position: absolute;
+  width: 100%;
+  background: #0f0;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 2.5px #0f0) drop-shadow(0 0 10px #0f0);
+  transition: 0.5s;
+}
+
+.btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background: #444;
+  font-size: 1.5em;
+  color: #fff;
+  border-radius: 50%;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn:active {
+  font-size: 1.25em;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+#output {
+  position: relative;
+  color: #fff;
+  font-size: 2em;
+  text-shadow: 0 0 5px #fff;
+}

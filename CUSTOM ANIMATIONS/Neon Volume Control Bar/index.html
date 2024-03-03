@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Neon Volume Control Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="spinner">
+        <span id="output"></span>
+        <div class="progress">
+          <span id="meter"></span>
+        </div>
+        <div class="btn plus" onclick="plus()">+</div>
+        <div class="btn minus" onclick="minus()">-</div>
+      </div>
+    </div>
+
+    <script>
+      let x = 0;
+      let output = document.getElementById("output");
+      let meter = document.getElementById("meter");
+      output.innerHTML = x;
+
+      function plus() {
+        if (x >= 10) {
+          return false;
+        }
+        if (x >= 7) {
+          meter.style.background = "#f00";
+          meter.style.filter =
+            "drop-shadow(0 0 2.5px #f00) drop-shadow(0 0 10px #f00)";
+        }
+        output.innerHTML = ++x;
+        meter.style.height = x * 10 + "%";
+      }
+
+      function minus() {
+        if (x <= 0) {
+          return false;
+        }
+        if (x <= 7) {
+          meter.style.background = "#0f0";
+          meter.style.filter =
+            "drop-shadow(0 0 2.5px #0f0) drop-shadow(0 0 10px #0f0)";
+        }
+        output.innerHTML = --x;
+        meter.style.height = x * 10 + "%";
+      }
+    </script>
+  </body>
+</html>
