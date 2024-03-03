@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Check Cross Toggle Icon MI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <label class="toggleButton">
+      <input type="checkbox" />
+      <div>
+        <svg viewBox="0 0 44 44">
+          <path
+            d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+            transform="translate(-2.000000, -2.000000)"
+          ></path>
+        </svg>
+      </div>
+    </label>
+
+    <script>
+      var toggle = document.querySelector(".toggleButton input");
+      var animate = setInterval(() => {
+        toggle.checked = !toggle.checked;
+      }, 3000);
+
+      document.querySelector("body").addEventListener("click", () => {
+        clearInterval(animate);
+      });
+    </script>
+  </body>
+</html>
