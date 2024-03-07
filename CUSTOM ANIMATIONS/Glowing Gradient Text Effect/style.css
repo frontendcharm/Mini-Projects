@@ -1,0 +1,40 @@
+@property --k {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+html {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  display: grid;
+  height: 100vh;
+}
+
+svg[height="0"] {
+  position: absolute;
+}
+
+h1 {
+  --k: 0;
+  place-self: center;
+  background: linear-gradient(90deg, hsl(calc(var(--k) * 1turn), 95%, 65%), hsl(calc(var(--k) * 1turn + 90deg), 95%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font: 900 clamp(0.875em, 7.25vw, 5em) arial black, sans-serif;
+  filter: url(#f);
+  text-align: center;
+  text-transform: uppercase;
+  animation: k 4s linear infinite;
+}
+
+@keyframes k {
+  to {
+    --k: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

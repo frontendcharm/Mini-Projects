@@ -1,0 +1,81 @@
+body {
+    background-color: #151515;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.mouse-icon {
+    position: relative;
+
+    .mouse {
+        width: 28px;
+        height: 38px;
+        background: #fff;
+        border-radius: 20px;
+        position: relative;
+        margin-bottom: 3px;
+
+        &::after {
+            content: "";
+            background: #D83C40;
+            width: 4px;
+            height: 6px;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 20px;
+            animation: scrollAnim 1.1s infinite;
+        }
+    }
+
+    .arrow {
+        width: 6px;
+        height: 6px;
+        display: block;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg);
+        position: relative;
+        margin: 0 auto;
+        animation: arrowAnim 1.2s infinite;
+
+        &.arrow-01 {
+            animation-delay: .2s;
+        }
+
+        &.arrow-02 {
+            animation-delay: .3s;
+        }
+
+        &.arrow-03 {
+            animation-delay: .4s;
+        }
+    }
+}
+
+@keyframes scrollAnim {
+    from {
+        top: 5px;
+    }
+
+    to {
+        top: 15px;
+        opacity: 0;
+    }
+}
+
+@keyframes arrowAnim {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
