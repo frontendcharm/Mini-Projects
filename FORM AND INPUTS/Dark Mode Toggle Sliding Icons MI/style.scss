@@ -1,0 +1,61 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+}
+
+label {
+    position: relative;
+    display: block;
+    width: 180px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #000839;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        top: 14px;
+        left: 14px;
+        transition: 0.5s ease;
+    }
+
+    &::before {
+        background-color: #ffa41b;
+    }
+
+    &::after {
+        background-color: #000839;
+        left: -58px;
+        transform: scale(0.00001);
+    }
+}
+
+input[type="checkbox"] {
+    display: none;
+
+    &:checked+label {
+        &::before {
+            background-color: #fff;
+            transform: translateX(80px);
+        }
+
+        &::after {
+            transform: translateX(120px) scale(1);
+        }
+    }
+}
