@@ -1,0 +1,126 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 4rem;
+  text-align: center;
+  background-color: #151515;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.frame-btn {
+  line-height: 10px;
+  display: inline-block;
+  padding: 30px 35px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  position: relative;
+}
+.frame-btn__text {
+  color: #B38FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 300ms ease;
+  position: relative;
+}
+.frame-btn:hover .frame-btn__text {
+  color: #151515;
+}
+.frame-btn__solid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  background-color: #B38FFF;
+  width: calc(100% - (5px * 4));
+  height: calc(100% - (5px * 4));
+  transform-origin: 50%;
+  transform: scale(0.85);
+  opacity: 0;
+  transition: 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.frame-btn:hover .frame-btn__solid {
+  opacity: 1;
+  transform: scale(1);
+}
+.frame-btn__outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.frame-btn__outline--tall {
+  margin: 0 5px;
+  width: calc(100% - (5px * 2));
+  height: 100%;
+}
+.frame-btn__outline--flat {
+  margin: 5px 0;
+  height: calc(100% - (5px * 2));
+  width: 100%;
+}
+.frame-btn__line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.frame-btn__line--tall::before, .frame-btn__line--tall::after {
+  height: 100%;
+  width: 1px;
+  top: 0;
+}
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--tall::before, .frame-btn:hover .frame-btn__outline--flat .frame-btn__line--tall::after {
+  transform: scaleY(0);
+}
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--tall::before, .frame-btn:hover .frame-btn__outline--tall .frame-btn__line--tall::after {
+  margin: 5px 0;
+  height: calc(100% - (5px * 2));
+}
+.frame-btn__line--tall::before {
+  left: 0;
+}
+.frame-btn__line--tall::after {
+  right: 0;
+}
+.frame-btn__line--flat::before, .frame-btn__line--flat::after {
+  width: 100%;
+  height: 1px;
+  left: 0;
+}
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--flat::before, .frame-btn:hover .frame-btn__outline--tall .frame-btn__line--flat::after {
+  transform: scaleX(0);
+}
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--flat::before, .frame-btn:hover .frame-btn__outline--flat .frame-btn__line--flat::after {
+  margin: 0 5px;
+  width: calc(100% - (5px * 2));
+}
+.frame-btn__line--flat::before {
+  top: 0;
+}
+.frame-btn__line--flat::after {
+  bottom: 0;
+}
+.frame-btn__line::before, .frame-btn__line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #B38FFF;
+  transition: 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.frame-btn:hover .frame-btn__line::before, .frame-btn:hover .frame-btn__line::after {
+  transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/*# sourceMappingURL=style.css.map */
