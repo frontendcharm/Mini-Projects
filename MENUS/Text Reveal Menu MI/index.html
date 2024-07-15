@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Text Reveal Menu MI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div id="cursor"></div>
+
+    <div class="items">
+      <div class="title">
+        <h2 class="title__text" data-text="Home">Home</h2>
+      </div>
+      <div class="title">
+        <h2 class="title__text" data-text="About">About</h2>
+      </div>
+      <div class="title">
+        <h2 class="title__text" data-text="Work">Work</h2>
+      </div>
+      <div class="title">
+        <h2 class="title__text" data-text="Contact">Contact</h2>
+      </div>
+    </div>
+
+    <script>
+      const lerp = (a, b, n) => (1 - n) * a + n * b;
+
+      class Cursor {
+        constructor() {
+          this.target = { x: 0.5, y: 0.5 };
+          this.cursor = { x: 0.5, y: 0.5 };
+          this.speed = 0.15;
+          this.init();
+        }
+        bindAll() {
+          ["onMouseMove", "render"].forEach(
+            (fn) => (this[fn] = this[fn].bind(this))
+          );
+        }
+        onMouseMove(e) {
+          this.target.x = e.clientX / window.innerWidth;
+          this.target.y = e.clientY / window.innerHeight;
+          if (!this.raf) this.raf = requestAnimationFrame(this.render);
+        }
+        render() {
+          this.cursor.x = lerp(this.cursor.x, this.target.x, this.speed);
+          this.cursor.y = lerp(this.cursor.y, this.target.y, this.speed);
+          document.documentElement.style.setProperty(
+            "--cursor-x",
+            this.cursor.x
+          );
+          document.documentElement.style.setProperty(
+            "--cursor-y",
+            this.cursor.y
+          );
+
+          const delta = Math.sqrt(
+            Math.pow(this.target.x - this.cursor.x, 2) +
+              Math.pow(this.target.y - this.cursor.y, 2)
+          );
+
+          document.documentElement.style.setProperty(
+            "--cursor-scale",
+            1 + delta * 3
+          );
+
+          if (delta < 0.001) {
+            cancelAnimationFrame(this.raf);
+            this.raf = null;
+            return;
+          }
+
+          this.raf = requestAnimationFrame(this.render);
+        }
+        init() {
+          this.bindAll();
+          window.addEventListener("mousemove", this.onMouseMove);
+          this.raf = requestAnimationFrame(this.render);
+        }
+      }
+
+      new Cursor();
+    </script>
+  </body>
+</html>
