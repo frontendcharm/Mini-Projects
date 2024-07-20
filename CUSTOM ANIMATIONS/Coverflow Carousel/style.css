@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  background-color: rgb(24, 27, 30);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.carousel {
+  position: relative;
+}
+.carousel .carousel__item {
+  position: relative;
+  height: 35rem;
+  width: 25rem;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.1);
+  z-index: 0;
+  transition: all 0.2s linear;
+}
+.carousel .carousel__item img {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+.carousel .carousel__item:hover > .carousel__text {
+  opacity: 1;
+}
+.carousel .carousel__item:hover img {
+  filter: grayscale(0%);
+}
+.carousel .carousel__item .carousel__text {
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.2s;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem 1rem;
+  color: #fff;
+}
+.carousel .carousel__item--main {
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+  cursor: pointer;
+}
+.carousel .carousel__item--main:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+.carousel .carousel__item--left {
+  transform: translate(-110%, -50%) scale(0.9);
+  z-index: 1;
+}
+.carousel .carousel__item--left:hover {
+  transform: translate(-110%, -50%) scale(1.2);
+  z-index: 3;
+  cursor: pointer;
+}
+.carousel .carousel__item--right {
+  transform: translate(10%, -50%) scale(0.9);
+  z-index: 1;
+}
+.carousel .carousel__item--right:hover {
+  transform: translate(10%, -50%) scale(1.2);
+  z-index: 3;
+  cursor: pointer;
+}
+.carousel .carousel__item--left img,
+.carousel .carousel__item--right img {
+  filter: grayscale(80%);
+}
+.carousel .carousel__buttons {
+  position: absolute;
+  transform: translate(-50%, 22rem);
+  display: flex;
+  gap: 2rem;
+}
+.carousel .carousel__buttons .carousel__btn {
+  background-color: transparent;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  color: #fff;
+  cursor: pointer;
+}
+.carousel .carousel__buttons .carousel__btn svg {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+/*# sourceMappingURL=style.css.map */

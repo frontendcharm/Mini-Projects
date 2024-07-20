@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Coverflow Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="carousel">
+      <div class="carousel__item carousel__item--left">
+        <img
+          src="https://images.unsplash.com/photo-1702593829629-c8b00aaad2a1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bHV4dXJ5JTIwY2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+          alt="car"
+        />
+        <div class="carousel__text">
+          <h3>BMW</h3>
+        </div>
+      </div>
+
+      <div class="carousel__item carousel__item--main">
+        <img
+          src="https://images.unsplash.com/photo-1569999718334-b2a75df9dd50?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bHV4dXJ5JTIwY2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+          alt="car"
+        />
+        <div class="carousel__text">
+          <h3>Mercedes-Benz</h3>
+        </div>
+      </div>
+
+      <div class="carousel__item carousel__item--right">
+        <img
+          src="https://images.unsplash.com/photo-1517779894653-4c49f68b4d66?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGx1eHVyeSUyMGNhcnN8ZW58MHx8MHx8fDA%3D"
+          alt="car"
+        />
+        <div class="carousel__text">
+          <h3>Lamborghini</h3>
+        </div>
+      </div>
+
+      <div class="carousel__item">
+        <img
+          src="https://images.unsplash.com/photo-1599338474777-92be0b662488?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="car"
+        />
+        <div class="carousel__text">
+          <h3>Porsche</h3>
+        </div>
+      </div>
+
+      <div class="carousel__item">
+        <img
+          src="https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="car"
+        />
+        <div class="carousel__text">
+          <h3>Bentley</h3>
+        </div>
+      </div>
+
+      <div class="carousel__buttons">
+        <button class="carousel__btn" id="leftBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"
+            />
+          </svg>
+        </button>
+
+        <button class="carousel__btn" id="rightBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
