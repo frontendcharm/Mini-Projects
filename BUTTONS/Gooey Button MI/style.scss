@@ -1,0 +1,79 @@
+body,
+html {    
+    background-color: #0c1016;
+    display: grid;
+    place-items: center;
+    font-family: 'Roboto';
+    font-size: 10px;
+    height: 100%;    
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+svg {
+    position: absolute;
+    top: -4000px;
+    left: -4000px;
+}
+
+#gooey-button {
+    padding: 2rem;
+    font-size: 2rem;
+    border: none;
+    color: #0c1016;
+    filter: url('#gooey');
+    position: relative;
+    background-color: #00FF80;
+
+    &:focus {
+        outline: none;
+    }
+
+    .bubbles {
+        position: absolute;
+        inset: 0;
+
+        .bubble {
+            background-color: #00FF80;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            z-index: -1;
+
+            @for $bubble from 1 through 10 {
+                &:nth-child(#{$bubble}) {
+                    $size: 25px;
+                    left: (random(90) + 10) + px;
+                    width: $size;
+                    height: $size;
+                    animation: move-#{$bubble} #{3 + $bubble * 0.02}s infinite;
+                    animation-delay: #{$bubble * 0.2}s;
+                }
+            }
+        }
+    }
+}
+
+@for $bubble from 1 through 10 {
+    @keyframes move-#{$bubble} {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        99% {
+            transform: translate(0, -(random(80) + 50) + px);
+        }
+
+        100% {
+            transform: translate(0, 0);
+            opacity: 0;
+        }
+    }
+}
