@@ -1,0 +1,131 @@
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background: #6800b1;
+}
+
+#wrapper {
+    position: relative;
+    transform: scale(0.5) translate(25px, 140px);
+    transition: 1s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out 1 forwards 1.25s;
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    &:has(input:checked) {
+        transform: scale(0.5) translate(-20px, -140px);
+
+        #inner {
+            transform: scaleY(-1) translate(0, -275px);
+            transition-delay: 1.25s;
+        }
+    }
+
+    #inner {
+        width: auto;
+        height: auto;
+        transition: 0s linear 0s;
+    }
+
+    div:not(#inner) {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: #000;
+        top: 0;
+        left: 0;
+        border-radius: 100%;
+        offset-path: path("M 60 70 L 140 70 A 30 30 0 1 1 140 140 L 80 140 A 30 30 0 1 0 80 210 L 140 210 A 30 30 0 1 1 140 280 L 80 280 A 30 30 0 0 0 80 350 L 160 350 "
+            );
+        offset-distance: 0.25%;
+        transition: offset-distance 1s ease-in-out, background 0.2s ease-in-out;
+    }
+
+    input {
+        position: absolute;
+        z-index: 9;
+        width: 35px;
+        height: 35px;
+        left: 45px;
+        top: 52.5px;
+        opacity: 0;
+        cursor: pointer;
+
+        &:hover {
+            &~div:not(#inner) {
+                background: #555;
+            }
+        }
+
+        &:checked {
+            top: auto;
+            left: auto;
+            right: 55px;
+            bottom: 55px;
+
+            &~svg path {
+                animation: drawInOut 1s ease-in-out 1 forwards;
+
+                @keyframes drawInOut {
+                    0% {
+                        stroke-dashoffset: 800px;
+                    }
+
+                    50% {
+                        stroke-dashoffset: 0px;
+                    }
+
+                    100% {
+                        stroke-dashoffset: -725px;
+                    }
+                }
+            }
+
+            &~div:not(#inner) {
+                offset-distance: 99.75%;
+                transition-delay: 0.15s, 0s;
+            }
+        }
+    }
+}
+
+svg {
+    min-width: 230px;
+    min-height: 420px;
+
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-width: 55px;
+        stroke-dasharray: 880px;
+        stroke-dashoffset: 800px;
+        transition: 1s ease-in-out;
+        animation: drawOutIn 1s ease-in-out 1 forwards;
+
+        @keyframes drawOutIn {
+            0% {
+                stroke-dashoffset: -700px;
+            }
+
+            50% {
+                stroke-dashoffset: 0px;
+            }
+
+            100% {
+                stroke-dashoffset: 825px;
+            }
+        }
+
+        &:last-of-type {
+            stroke: #fff;
+            stroke-width: 40px;
+        }
+    }
+}
