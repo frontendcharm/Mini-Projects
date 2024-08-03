@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Text Reveal Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div class="animated-text" id="animatedText"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const text = "FRONTENDCHARM";
+        const container = document.getElementById("animatedText");
+
+        // Create spans for each letter
+        text.split("").forEach((char) => {
+          const span = document.createElement("span");
+          span.className = "letter";
+          span.innerHTML = char === " " ? "&nbsp;" : char;
+          container.appendChild(span);
+        });
+
+        const letters = document.querySelectorAll(".letter");
+        const totalLetters = letters.length;
+        const delayIncrement = 100; // Delay in milliseconds
+
+        function easeInOutQuart(t) {
+          return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+        }
+
+        function animateLetters(forward = true) {
+          letters.forEach((letter, index) => {
+            const normalizedIndex =
+              Math.max(index, totalLetters - 1 - index) / (totalLetters - 1);
+            const easedDelay = easeInOutQuart(normalizedIndex);
+            const delay = easedDelay * (totalLetters - 1) * delayIncrement;
+
+            setTimeout(() => {
+              letter.style.setProperty("--wght", forward ? 700 : 100);
+              letter.style.setProperty("--wdth", forward ? 400 : 150);
+              letter.style.setProperty("--opacity", forward ? 1 : 0.25);
+              letter.style.setProperty(
+                "--letter-spacing",
+                forward ? "0.05em" : "0em"
+              );
+            }, delay);
+          });
+
+          setTimeout(() => animateLetters(!forward), 4000);
+        }
+
+        animateLetters();
+      });
+    </script>
+  </body>
+</html>

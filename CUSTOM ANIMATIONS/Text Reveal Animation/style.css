@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Heading Now";
+  src: url("https://fonts.vdhazel.com/headingnow/Heading-Now-Variable-Regular-trial.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Heading Now", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+.animated-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-size: 10vw;
+  line-height: 10vw;
+}
+
+.letter {
+  display: inline-block;
+  --wght: 100;
+  --wdth: 85;
+  --opacity: 0.25;
+  --letter-spacing: 0;
+  --font-size: 10vw;
+  font-variation-settings: "wght" var(--wght), "wdth" var(--wdth);
+  opacity: var(--opacity);
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--font-size);
+  transition: font-variation-settings 1s ease-in-out, opacity 1s ease-in-out,
+    letter-spacing 2s ease-in-out, font-size 1s ease-in-out;
+}
