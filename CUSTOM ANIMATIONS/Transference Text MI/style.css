@@ -1,0 +1,71 @@
+body {
+  font-family: Raleway, sans-serif;
+  display: grid;
+  place-items: center;
+  background: #151515;
+  color: #fff;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.fancy-wipe {
+  font-weight: 900;
+  font-size: 6rem;
+  position: relative;
+  --duration: 2s;
+}
+.fancy-wipe .text {
+  color: white;
+  animation: text-in var(--duration) infinite linear;
+  mask: linear-gradient(to right, white, black 30%, black);
+  mask-composite: exclude;
+  mask-mode: luminance;
+  mask-size: 100% 100%;
+  mask-position: 0 0px;
+}
+.fancy-wipe .wipe-in {
+  position: absolute;
+  left: 0;
+  background-image: linear-gradient(90deg, #fff89a, #cdf2ca, #a2cdcd, #d1e8e4, #cab8ff, #ff7878, #ffc898);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wipe-in var(--duration) infinite linear;
+  mask: linear-gradient(to right, black, white);
+  mask-composite: exclude;
+  mask-mode: luminance;
+  mask-size: 50% 100%;
+  mask-position: 0px 0px;
+}
+
+@keyframes text-in {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(50% 0, 0 0, 0 100%, 50% 100%);
+  }
+  100% {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    mask-size: 1000% 100%;
+  }
+}
+@keyframes wipe-in {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    filter: blur(5px);
+  }
+  70% {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    filter: blur(5px);
+    mask-position: 100% 100%;
+  }
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    filter: blur(0);
+    mask-position: 100% 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
