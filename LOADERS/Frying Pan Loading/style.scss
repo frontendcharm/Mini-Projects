@@ -1,0 +1,362 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 90%);
+  --fg: hsl(var(--hue), 10%, 10%);
+  --trans-dur: 0.3s;
+  font-size: calc(14px + (30 - 14) * (100vw - 280px) / (3840 - 280));
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  display: flex;
+  font: 1em/1.5 sans-serif;
+  height: 100vh;
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+$debug: false;
+$size: 12em;
+$ease-in: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+$ease-out: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+$drop-color: hsl(223, 10%, 70%, 1);
+$drop-color-t: hsl(223, 10%, 70%, 0);
+
+.pl {
+  @if ($debug ==true) {
+    outline: 1px solid;
+  }
+
+  margin: auto;
+  width: $size;
+  height: $size;
+
+  &__drop,
+  &__drop-inner,
+  &__pan,
+  &__ring,
+  &__shadow {
+    animation: pan 2s $ease-in-out infinite;
+  }
+
+  &__drop {
+    $drops: 5;
+    transform-origin: 13px 60px;
+
+    &-inner {
+      animation-timing-function: $ease-out;
+    }
+
+    @for $d from 1 through $drops {
+      &--#{$d} {
+        animation-name: drop-#{$d};
+
+        @if $d >=3 {
+          transform-origin: 67px 72px;
+        }
+      }
+
+      &--#{$d} &-inner {
+        animation-name: drop-#{$d}-inner;
+      }
+    }
+  }
+
+  &__pan {
+    transform-origin: 36px 74px;
+  }
+
+  &__ring {
+    animation-name: flip-ring;
+  }
+
+  &__shadow {
+    animation-name: pan-shadow;
+    transform-origin: 36px 124.5px;
+  }
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue), 10%, 10%);
+    --fg: hsl(var(--hue), 10%, 90%);
+  }
+}
+
+/* Animation */
+@keyframes drop-1 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+
+  30% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+
+  50%,
+  to {
+    transform: translate(-6px, 0);
+  }
+}
+
+@keyframes drop-1-inner {
+
+  from,
+  30% {
+    fill: $drop-color;
+    transform: translate(0, 0);
+  }
+
+  50%,
+  to {
+    fill: $drop-color-t;
+    transform: translate(0, -27px);
+  }
+}
+
+@keyframes drop-2 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+
+  30% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+
+  50%,
+  to {
+    transform: translate(-8px, 0);
+  }
+}
+
+@keyframes drop-2-inner {
+
+  from,
+  30% {
+    fill: $drop-color;
+    transform: translate(0, 0);
+  }
+
+  50%,
+  to {
+    fill: $drop-color-t;
+    transform: translate(0, -9px);
+  }
+}
+
+@keyframes drop-3 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+
+  98%,
+  to {
+    transform: translate(-24px, 0);
+  }
+}
+
+@keyframes drop-3-inner {
+
+  from,
+  78% {
+    fill: $drop-color;
+    transform: translate(0, 0);
+  }
+
+  98%,
+  to {
+    fill: $drop-color-t;
+    transform: translate(0, -28px);
+  }
+}
+
+@keyframes drop-4 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+
+  98%,
+  to {
+    transform: translate(-8px, 0);
+  }
+}
+
+@keyframes drop-4-inner {
+
+  from,
+  78% {
+    fill: $drop-color;
+    transform: translate(0, 0);
+  }
+
+  98%,
+  to {
+    fill: $drop-color-t;
+    transform: translate(0, -36px);
+  }
+}
+
+@keyframes drop-5 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+
+  98%,
+  to {
+    transform: translate(8px, 0);
+  }
+}
+
+@keyframes drop-5-inner {
+
+  from,
+  78% {
+    fill: $drop-color;
+    transform: translate(0, 0);
+  }
+
+  98%,
+  to {
+    fill: $drop-color-t;
+    transform: translate(0, -32px);
+  }
+}
+
+@keyframes flip-ring {
+
+  from,
+  27% {
+    animation-timing-function: $ease-out;
+    stroke-dashoffset: 20;
+    stroke-width: 4px;
+  }
+
+  53.5% {
+    animation-timing-function: $ease-in;
+    stroke-dashoffset: -100;
+    stroke-width: 10px;
+  }
+
+  80%,
+  to {
+    stroke-dashoffset: -220;
+    stroke-width: 4px;
+  }
+}
+
+@keyframes pan {
+
+  from,
+  88%,
+  to {
+    transform: translate(0, 0) rotate(0);
+  }
+
+  20% {
+    animation-timing-function: $ease-in;
+    transform: translate(-5px, 0) rotate(-30deg);
+  }
+
+  30% {
+    animation-timing-function: $ease-out;
+    transform: translate(0, 0) rotate(20deg);
+  }
+
+  60%,
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0) rotate(0);
+  }
+
+  81.33% {
+    animation-timing-function: linear;
+    transform: translate(0, 4px) rotate(0);
+  }
+
+  84.67% {
+    animation-timing-function: linear;
+    transform: translate(0, -2px) rotate(0);
+  }
+}
+
+@keyframes pan-shadow {
+
+  from,
+  88%,
+  to {
+    fill: hsla(223, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+
+  20% {
+    animation-timing-function: $ease-in;
+    fill: hsla(223, 10%, 50%, 0.2);
+    transform: scaleX(0.77);
+  }
+
+  30% {
+    animation-timing-function: $ease-out;
+    fill: hsla(223, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+
+  60%,
+  78% {
+    animation-timing-function: linear;
+    fill: hsla(223, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+
+  81.33% {
+    animation-timing-function: linear;
+    fill: hsla(223, 10%, 50%, 0.25);
+    transform: scaleX(0.87);
+  }
+
+  84.67% {
+    animation-timing-function: linear;
+    fill: hsla(223, 10%, 50%, 0.225);
+    transform: scaleX(1.065);
+  }
+}

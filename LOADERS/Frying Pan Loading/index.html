@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Frying Pan Loading Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <svg
+      class="pl"
+      viewBox="0 0 128 128"
+      width="128px"
+      height="128px"
+      role="img"
+      aria-label="A pan being used to flip a blob resembling bacon as it splashes drops of grease in and out"
+    >
+      <clipPath id="pan-clip">
+        <rect rx="12" ry="14" x="4" y="52" width="68" height="28" />
+      </clipPath>
+      <defs>
+        <linearGradient id="pl-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#000" />
+          <stop offset="100%" stop-color="#fff" />
+        </linearGradient>
+        <mask id="pl-mask">
+          <rect x="0" y="0" width="88" height="80" fill="url(#pl-grad)" />
+        </mask>
+      </defs>
+      <g fill="currentColor">
+        <g
+          fill="none"
+          stroke-dasharray="20 221"
+          stroke-dashoffset="20"
+          stroke-linecap="round"
+          stroke-width="4"
+        >
+          <g stroke="hsl(38,90%,50%)">
+            <circle
+              class="pl__ring"
+              cx="44"
+              cy="40"
+              r="35"
+              transform="rotate(90,44,40)"
+            />
+          </g>
+          <g stroke="hsl(8,90%,40%)" mask="url(#pl-mask)">
+            <circle
+              class="pl__ring"
+              cx="44"
+              cy="40"
+              r="35"
+              transform="rotate(90,44,40)"
+            />
+          </g>
+        </g>
+        <g fill="hsla(223,10%,70%,0)">
+          <g class="pl__drop pl__drop--1">
+            <circle class="pl__drop-inner" cx="13" cy="60" r="2" />
+          </g>
+          <g class="pl__drop pl__drop--2">
+            <circle class="pl__drop-inner" cx="13" cy="60" r="2" />
+          </g>
+          <g class="pl__drop pl__drop--3">
+            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+          </g>
+          <g class="pl__drop pl__drop--4">
+            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+          </g>
+          <g class="pl__drop pl__drop--5">
+            <circle class="pl__drop-inner" cx="67" cy="72" r="2" />
+          </g>
+        </g>
+        <g class="pl__pan">
+          <rect
+            rx="2"
+            ry="2"
+            x="4"
+            y="66"
+            width="68"
+            height="14"
+            clip-path="url(#pan-clip)"
+            id="pan"
+          />
+          <rect rx="2" ry="2" x="76" y="66" width="48" height="7" />
+        </g>
+        <rect
+          class="pl__shadow"
+          fill="hsla(223,10%,50%,0.2)"
+          rx="3.5"
+          ry="3.5"
+          x="10"
+          y="121"
+          width="60"
+          height="7"
+        />
+      </g>
+    </svg>
+  </body>
+</html>

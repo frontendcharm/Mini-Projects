@@ -1,0 +1,289 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 90%);
+  --fg: hsl(var(--hue), 10%, 10%);
+  --trans-dur: 0.3s;
+  font-size: calc(14px + 16 * (100vw - 280px) / 3560);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  display: flex;
+  font: 1em/1.5 sans-serif;
+  height: 100vh;
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+.pl {
+  margin: auto;
+  width: 12em;
+  height: 12em;
+}
+.pl__drop, .pl__drop-inner, .pl__pan, .pl__ring, .pl__shadow {
+  animation: pan 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.pl__drop {
+  transform-origin: 13px 60px;
+}
+.pl__drop-inner {
+  animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+}
+.pl__drop--1 {
+  animation-name: drop-1;
+}
+.pl__drop--1 .pl__drop-inner {
+  animation-name: drop-1-inner;
+}
+.pl__drop--2 {
+  animation-name: drop-2;
+}
+.pl__drop--2 .pl__drop-inner {
+  animation-name: drop-2-inner;
+}
+.pl__drop--3 {
+  animation-name: drop-3;
+  transform-origin: 67px 72px;
+}
+.pl__drop--3 .pl__drop-inner {
+  animation-name: drop-3-inner;
+}
+.pl__drop--4 {
+  animation-name: drop-4;
+  transform-origin: 67px 72px;
+}
+.pl__drop--4 .pl__drop-inner {
+  animation-name: drop-4-inner;
+}
+.pl__drop--5 {
+  animation-name: drop-5;
+  transform-origin: 67px 72px;
+}
+.pl__drop--5 .pl__drop-inner {
+  animation-name: drop-5-inner;
+}
+.pl__pan {
+  transform-origin: 36px 74px;
+}
+.pl__ring {
+  animation-name: flip-ring;
+}
+.pl__shadow {
+  animation-name: pan-shadow;
+  transform-origin: 36px 124.5px;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue), 10%, 10%);
+    --fg: hsl(var(--hue), 10%, 90%);
+  }
+}
+/* Animation */
+@keyframes drop-1 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+  30% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+  50%, to {
+    transform: translate(-6px, 0);
+  }
+}
+@keyframes drop-1-inner {
+  from, 30% {
+    fill: hsl(223deg, 10%, 70%);
+    transform: translate(0, 0);
+  }
+  50%, to {
+    fill: hsla(223deg, 10%, 70%, 0);
+    transform: translate(0, -27px);
+  }
+}
+@keyframes drop-2 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+  30% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+  50%, to {
+    transform: translate(-8px, 0);
+  }
+}
+@keyframes drop-2-inner {
+  from, 30% {
+    fill: hsl(223deg, 10%, 70%);
+    transform: translate(0, 0);
+  }
+  50%, to {
+    fill: hsla(223deg, 10%, 70%, 0);
+    transform: translate(0, -9px);
+  }
+}
+@keyframes drop-3 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+  98%, to {
+    transform: translate(-24px, 0);
+  }
+}
+@keyframes drop-3-inner {
+  from, 78% {
+    fill: hsl(223deg, 10%, 70%);
+    transform: translate(0, 0);
+  }
+  98%, to {
+    fill: hsla(223deg, 10%, 70%, 0);
+    transform: translate(0, -28px);
+  }
+}
+@keyframes drop-4 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+  98%, to {
+    transform: translate(-8px, 0);
+  }
+}
+@keyframes drop-4-inner {
+  from, 78% {
+    fill: hsl(223deg, 10%, 70%);
+    transform: translate(0, 0);
+  }
+  98%, to {
+    fill: hsla(223deg, 10%, 70%, 0);
+    transform: translate(0, -36px);
+  }
+}
+@keyframes drop-5 {
+  from {
+    animation-timing-function: steps(1, end);
+    transform: translate(0, 0);
+    visibility: hidden;
+  }
+  78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0);
+    visibility: visible;
+  }
+  98%, to {
+    transform: translate(8px, 0);
+  }
+}
+@keyframes drop-5-inner {
+  from, 78% {
+    fill: hsl(223deg, 10%, 70%);
+    transform: translate(0, 0);
+  }
+  98%, to {
+    fill: hsla(223deg, 10%, 70%, 0);
+    transform: translate(0, -32px);
+  }
+}
+@keyframes flip-ring {
+  from, 27% {
+    animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+    stroke-dashoffset: 20;
+    stroke-width: 4px;
+  }
+  53.5% {
+    animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+    stroke-dashoffset: -100;
+    stroke-width: 10px;
+  }
+  80%, to {
+    stroke-dashoffset: -220;
+    stroke-width: 4px;
+  }
+}
+@keyframes pan {
+  from, 88%, to {
+    transform: translate(0, 0) rotate(0);
+  }
+  20% {
+    animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+    transform: translate(-5px, 0) rotate(-30deg);
+  }
+  30% {
+    animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+    transform: translate(0, 0) rotate(20deg);
+  }
+  60%, 78% {
+    animation-timing-function: linear;
+    transform: translate(0, 0) rotate(0);
+  }
+  81.33% {
+    animation-timing-function: linear;
+    transform: translate(0, 4px) rotate(0);
+  }
+  84.67% {
+    animation-timing-function: linear;
+    transform: translate(0, -2px) rotate(0);
+  }
+}
+@keyframes pan-shadow {
+  from, 88%, to {
+    fill: hsla(223deg, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+  20% {
+    animation-timing-function: cubic-bezier(0.33, 0.16, 0.67, 0.16);
+    fill: hsla(223deg, 10%, 50%, 0.2);
+    transform: scaleX(0.77);
+  }
+  30% {
+    animation-timing-function: cubic-bezier(0.33, 0.84, 0.67, 0.84);
+    fill: hsla(223deg, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+  60%, 78% {
+    animation-timing-function: linear;
+    fill: hsla(223deg, 10%, 50%, 0.2);
+    transform: scaleX(1);
+  }
+  81.33% {
+    animation-timing-function: linear;
+    fill: hsla(223deg, 10%, 50%, 0.25);
+    transform: scaleX(0.87);
+  }
+  84.67% {
+    animation-timing-function: linear;
+    fill: hsla(223deg, 10%, 50%, 0.225);
+    transform: scaleX(1.065);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
