@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Stacked Images Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="stack">
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a36d2695-58f8-4644-9e19-71988334e345"
+            alt=""
+          />
+        </div>
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9f9148ad-74c2-4ebc-a769-bb90fec7b9a5"
+            alt=""
+          />
+        </div>
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ff35104e-3a7e-458f-8077-7ea2780706fa"
+            alt=""
+          />
+        </div>
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/060546fb-1cbb-428e-b48d-eae2711a0c83"
+            alt=""
+          />
+        </div>
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/7feb903b-33f7-4326-90eb-a4f54c86c68e"
+            alt=""
+          />
+        </div>
+        <div class="card">
+          <img
+            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/417d1d6b-4100-4419-9e01-37561a354b80"
+            alt=""
+          />
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const stack = document.querySelector(".stack");
+      const cards = Array.from(stack.children)
+        .reverse()
+        .filter((child) => child.classList.contains("card"));
+
+      cards.forEach((card) => stack.appendChild(card));
+
+      function moveCard() {
+        const lastCard = stack.lastElementChild;
+        if (lastCard.classList.contains("card")) {
+          lastCard.classList.add("swap");
+
+          setTimeout(() => {
+            lastCard.classList.remove("swap");
+            stack.insertBefore(lastCard, stack.firstElementChild);
+          }, 1200);
+        }
+      }
+
+      let autoplayInterval = setInterval(moveCard, 4000);
+
+      stack.addEventListener("click", function (e) {
+        const card = e.target.closest(".card");
+        if (card && card === stack.lastElementChild) {
+          card.classList.add("swap");
+
+          setTimeout(() => {
+            card.classList.remove("swap");
+            stack.insertBefore(card, stack.firstElementChild);
+          }, 1200);
+        }
+      });
+    </script>
+  </body>
+</html>

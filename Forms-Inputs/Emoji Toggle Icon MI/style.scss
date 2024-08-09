@@ -1,0 +1,253 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 10%, 90%);
+    --fg: hsl(var(--hue), 10%, 10%);
+    --trans-dur: 0.5s;
+    --trans-timing1: cubic-bezier(0.65, 0, 0.35, 1);
+    --trans-timing2: cubic-bezier(0.65, 0, 0.35, 1.5);
+    font-size: calc(56px + (120 - 56) * (100vw - 280px) / (3840 - 280));
+}
+
+body,
+input {
+    color: var(--fg);
+    font: 1em/1.5 sans-serif;
+    transition: background-color var(--trans-dur) var(--trans-timing1),
+        color var(--trans-dur) var(--trans-timing1);
+}
+
+body {
+    background-color: var(--bg);
+    display: flex;
+    height: 100vh;
+}
+
+.switch {
+    display: flex;
+    margin: auto;
+
+    &__emoji {
+        $hue: 48;
+        $sat: 90%;
+        $radius: 0.5em;
+
+        box-shadow: 0.25em 0.25em 0.125em hsl(0, 0%, 0%, 0.3);
+        overflow: hidden;
+        pointer-events: none;
+        top: 0.25em;
+        left: 0.25em;
+        width: 1em;
+        height: 1em;
+
+        [dir="rtl"] & {
+            right: 0.25em;
+            left: auto;
+        }
+
+        &,
+        &:before,
+        &:after,
+        &-eye,
+        &-mouth,
+        &-face {
+            display: block;
+            position: absolute;
+        }
+
+        &,
+        &:before,
+        &:after,
+        &-eye,
+        &-mouth {
+            border-radius: 50%;
+        }
+
+        &:before,
+        &:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            transform: translateZ(0);
+        }
+
+        &:before {
+            background-color: hsl($hue, $sat, 50%);
+            box-shadow: -0.25em -0.25em 0.25em hsl($hue, $sat, 40%) inset,
+                0.1875em 0.1875em 0.25em hsl($hue, $sat, 75%) inset;
+        }
+
+        &:after {
+            box-shadow: 0 0 0.125em 0.0625em hsla($hue, $sat, 60%, 0.5) inset;
+        }
+
+        &,
+        &-face {
+            transform-style: preserve-3d;
+            transition: transform var(--trans-dur) var(--trans-timing2);
+        }
+
+        &-eye,
+        &-mouth {
+            backface-visibility: hidden;
+        }
+
+        &-eye {
+            border: 0.0625em solid hsl(var(--hue), 10%, 10%) {
+                right-color: transparent;
+                bottom-color: transparent;
+            }
+
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            width: 0.25em;
+            height: 0.25em;
+            transform: translate(-50%, -50%) rotateY(-22.5deg) translateZ($radius) rotateZ(45deg);
+        }
+
+        &-eye+&-eye {
+            transform: translate(-50%, -50%) rotateY(22.5deg) translateZ($radius) rotateZ(45deg);
+        }
+
+        &-mouth {
+            background-image: radial-gradient(100% 100% at 50% 100%,
+                    hsl(3, 90%, 50%) 20%,
+                    hsl(3, 90%, 60%) 33%,
+                    hsla(3, 90%, 60%, 0) 35%),
+                radial-gradient(100% 100% at 75% 113%,
+                    hsl(0, 0%, 0%) 26%,
+                    hsla(0, 0%, 0%, 0) 35%),
+                linear-gradient(hsla(0, 0%, 0%, 0) 50%,
+                    hsl(0, 0%, 0%) 50% 55%,
+                    hsl(var(--hue), 10%, 10%) 65%);
+            top: 50%;
+            left: 50%;
+            width: 0.5em;
+            height: 0.5em;
+            transform: translate(-50%, -50%) rotateX(-15deg) translateZ($radius);
+        }
+
+        &-face {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(0);
+        }
+
+        &-face+&-face {
+            transform: rotateY(-180deg);
+        }
+
+        &-face--sad &-eye {
+            background-color: hsl(var(--hue), 10%, 10%);
+            border: 0;
+            width: 0.1875em;
+            height: 0.1875em;
+        }
+
+        &-face--sad &-mouth {
+            background-image: none;
+
+            border: 0.0625em solid transparent {
+                top-color: hsl(var(--hue), 10%, 10%);
+            }
+
+            transform: translate(-50%, 0) rotateX(-20deg) translateZ($radius);
+        }
+    }
+
+    &__input,
+    &__label {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    &__input {
+        background-color: hsl(var(--hue), 10%, 80%);
+        border-radius: 0.75em;
+        box-shadow: 0.0625em 0.0625em 0.0625em hsl(0, 0%, 100%) inset,
+            -0.0625em -0.0625em 0.0625em hsl(var(--hue), 10%, 80%) inset,
+            0 0 0 0.125em hsl(var(--hue), 10%, 90%) inset,
+            0.25em 0.25em 0.125em hsla(0, 0%, 0%, 0.3) inset,
+            0.0625em 0.0625em 0.0625em hsla(0, 0%, 0%, 0.3);
+        cursor: pointer;
+        display: block;
+        width: 2.5em;
+        height: 1.5em;
+        -webkit-appearance: none;
+        appearance: none;
+        transition: background-color var(--trans-dur) var(--trans-timing1),
+            box-shadow var(--trans-dur) var(--trans-timing1);
+    }
+
+    &__input:checked {
+        background-color: hsl(123, 90%, 40%);
+    }
+
+    &__input:checked+&__emoji {
+        transform: translateX(100%);
+
+        [dir="rtl"] & {
+            transform: translateX(-100%);
+        }
+    }
+
+    &__input:checked+&__emoji &__emoji-face {
+        transform: rotateY(179.99deg);
+
+        [dir="rtl"] & {
+            transform: rotateY(-179.99deg);
+        }
+    }
+
+    &__input:checked+&__emoji &__emoji-face+&__emoji-face {
+        transform: rotateY(0);
+
+        [dir="rtl"] & {
+            transform: rotateY(-360deg);
+        }
+    }
+
+    &__label,
+    &__wrapper {
+        display: block;
+    }
+
+    &__label {
+        margin-inline-start: 0.5em;
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue), 10%, 10%);
+        --fg: hsl(var(--hue), 10%, 90%);
+    }
+
+    .switch {
+        &__input {
+            background-color: hsl(var(--hue), 10%, 20%);
+            box-shadow: 0.0625em 0.0625em 0.0625em hsl(var(--hue), 10%, 25%) inset,
+                -0.0625em -0.0625em 0.0625em hsl(var(--hue), 10%, 20%) inset,
+                0 0 0 0.125em hsl(var(--hue), 10%, 30%) inset,
+                0.25em 0.25em 0.125em hsla(0, 0%, 0%, 0.3) inset,
+                0.0625em 0.0625em 0.0625em hsla(0, 0%, 0%, 0.3);
+        }
+    }
+}

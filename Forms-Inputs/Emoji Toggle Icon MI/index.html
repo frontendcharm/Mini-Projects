@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Emoji Toggle Icon MI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <label class="switch">
+      <span class="switch__wrapper">
+        <input class="switch__input" type="checkbox" role="switch" />
+        <span class="switch__emoji">
+          <span class="switch__emoji-face switch__emoji-face--sad">
+            <span class="switch__emoji-eye"></span>
+            <span class="switch__emoji-eye"></span>
+            <span class="switch__emoji-mouth"></span>
+          </span>
+          <span class="switch__emoji-face">
+            <span class="switch__emoji-eye"></span>
+            <span class="switch__emoji-eye"></span>
+            <span class="switch__emoji-mouth"></span>
+          </span>
+        </span>
+      </span>
+      <span class="switch__label">Power</span>
+    </label>
+
+    <script>
+      var toggle = document.querySelector(".toggleButton input");
+      var animate = setInterval(() => {
+        toggle.checked = !toggle.checked;
+      }, 3000);
+
+      document.querySelector("body").addEventListener("click", () => {
+        clearInterval(animate);
+      });
+    </script>
+  </body>
+</html>
