@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Rotating Hover Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <button type="button" title="Home">
+        <span>Home</span>
+        <span class="material-symbols-outlined" aria-hidden="true">home</span>
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <g>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath">Home</textPath>
+            </text>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath" startOffset="50%">
+                Home
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </button>
+
+      <button type="button">
+        <span>About</span>
+        <span class="material-symbols-outlined" aria-hidden="true">info</span>
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <g>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath">About</textPath>
+            </text>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath" startOffset="50%">
+                About
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </button>
+
+      <button type="button">
+        <span>Services</span>
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >linked_services</span
+        >
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <g>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath">Services</textPath>
+            </text>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath" startOffset="50%">
+                Services
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </button>
+
+      <button type="button">
+        <span>Contact</span>
+        <span class="material-symbols-outlined" aria-hidden="true">email</span>
+        <svg viewBox="0 0 300 300">
+          <g>
+            <text fill="currentColor" aria-hidden="true">
+              <textPath xlink:href="#circlePath">Contact</textPath>
+            </text>
+            <text fill="currentColor">
+              <textPath xlink:href="#circlePath" startOffset="50%">
+                Contact
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- SVG template with dynamic text -->
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 300 300"
+      width="0"
+      height="0"
+    >
+      <defs>
+        <path
+          id="circlePath"
+          d="M 150, 150 m -50, 0 a 50,50 0 0,1 100,0 a 50,50 0 0,1 -100,0"
+        />
+      </defs>
+    </svg>
+  </body>
+</html>

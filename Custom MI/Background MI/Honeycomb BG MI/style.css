@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
   position: relative;
   display: grid;
   place-content: center;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   overflow: hidden;
 }
 
@@ -27,10 +28,7 @@ h1 {
 
 #pattern {
   position: absolute;
-  top: -44px;
-  left: -50px;
-  right: 0;
-  bottom: 0;
+  inset: -44px 0 0 -50px;
 }
 
 #gradient {
@@ -42,43 +40,3 @@ h1 {
   left: -200px;
   transform: translate(200px, 200px);
 }
-
-/* -- youtube link styling -- */
-.links {
-  border-top: 1px solid rgba(255, 255, 255, 0.3137254902);
-  border-right: 1px solid rgba(255, 255, 255, 0.3137254902);
-  border-top-right-radius: 0.5rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 0.5rem;
-  font-family: Montserrat;
-  font-size: 1.2rem;
-  font-weight: 400;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.links > a {
-  color: #ffffff;
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0.5;
-}
-.links > a:hover {
-  opacity: 1;
-}
-.links > a > svg {
-  margin-left: 0.5rem;
-  flex-shrink: 0;
-}
-.links > a:nth-child(1) > svg {
-  stroke: #dd2d4a;
-}
-.links > a:nth-child(2) > svg {
-  stroke: #2b59c3;
-}
-
-/*# sourceMappingURL=style.css.map */
