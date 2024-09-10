@@ -43,8 +43,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.wrapper {
+.stage .wrapper {
   position: relative;
   color: #fff;
   font-size: 2.5rem;
@@ -55,8 +54,7 @@ body {
   padding-right: 0.36rem;
   padding-bottom: 0.2rem;
 }
-
-.slash {
+.stage .wrapper .slash {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,7 +67,7 @@ body {
   -webkit-animation: slash 6s ease-in infinite;
   animation: slash 6s ease-in infinite;
 }
-.slash:before {
+.stage .wrapper .slash:before {
   content: "";
   display: block;
   position: absolute;
@@ -81,7 +79,7 @@ body {
   background: #232323;
   z-index: -1;
 }
-.slash:after {
+.stage .wrapper .slash:after {
   content: "";
   display: block;
   position: absolute;
@@ -91,8 +89,7 @@ body {
   height: 100%;
   background: #fff;
 }
-
-.sides {
+.stage .wrapper .sides {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -100,11 +97,11 @@ body {
   left: 0;
   overflow: hidden;
 }
-.sides .side {
+.stage .wrapper .sides .side {
   position: absolute;
   background: #fff;
 }
-.sides .side:nth-child(1) {
+.stage .wrapper .sides .side:nth-child(1) {
   top: 0;
   left: 0;
   width: 100%;
@@ -113,7 +110,7 @@ body {
   -webkit-animation: side-top ease 6s infinite;
   animation: side-top ease 6s infinite;
 }
-.sides .side:nth-child(2) {
+.stage .wrapper .sides .side:nth-child(2) {
   top: 0;
   right: 0;
   width: 0.15rem;
@@ -122,7 +119,7 @@ body {
   -webkit-animation: side-right ease 6s infinite;
   animation: side-right ease 6s infinite;
 }
-.sides .side:nth-child(3) {
+.stage .wrapper .sides .side:nth-child(3) {
   left: 0;
   bottom: 0;
   width: 100%;
@@ -131,7 +128,7 @@ body {
   -webkit-animation: side-bottom ease 6s infinite;
   animation: side-bottom ease 6s infinite;
 }
-.sides .side:nth-child(4) {
+.stage .wrapper .sides .side:nth-child(4) {
   top: 0;
   left: 0;
   width: 0.15rem;
@@ -140,16 +137,13 @@ body {
   -webkit-animation: side-left ease 6s infinite;
   animation: side-left ease 6s infinite;
 }
-
-.text {
+.stage .wrapper .text {
   position: relative;
 }
-
-.text--backing {
+.stage .wrapper .text .text--backing {
   opacity: 0;
 }
-
-.text--left {
+.stage .wrapper .text .text--left {
   position: absolute;
   top: 0;
   left: 0;
@@ -157,13 +151,12 @@ body {
   height: 100%;
   overflow: hidden;
 }
-.text--left .inner {
+.stage .wrapper .text .text--left .inner {
   transform: translateX(100%);
   -webkit-animation: text-left 6s ease-in-out infinite;
   animation: text-left 6s ease-in-out infinite;
 }
-
-.text--right {
+.stage .wrapper .text .text--right {
   position: absolute;
   top: 0;
   right: 0;
@@ -171,7 +164,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
-.text--right .inner {
+.stage .wrapper .text .text--right .inner {
   transform: translateX(-200%);
   -webkit-animation: text-right 6s ease-in-out infinite;
   animation: text-right 6s ease-in-out infinite;
