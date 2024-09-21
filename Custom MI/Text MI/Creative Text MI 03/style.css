@@ -1,0 +1,56 @@
+body {
+  background-color: #222224;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+div {
+  perspective: 1000px;
+  perspective-origin: 50% -200px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  color: #eee;
+  animation: rotate 2s ease-in-out alternate infinite;
+  font-family: fantasy, monospace;
+}
+
+h1::before {
+  content: attr(data-shadow);
+  color: transparent;
+  text-shadow: 0 0 15px #111;
+  position: absolute;
+  z-index: -1;
+  margin: -0.1em 0 0 0;
+  animation: skew 2s ease-in-out alternate infinite;
+  transform-origin: bottom;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(-10deg);
+    text-shadow: 1px -1px #ccc, 2px -1px #bbb, 3px -2px #aaa, 4px -2px #999,
+      5px -3px #888, 6px -3px #777;
+  }
+
+  to {
+    transform: rotateY(10deg);
+    text-shadow: -1px -1px #ccc, -2px -1px #bbb, -3px -2px #aaa, -4px -2px #999,
+      -5px -3px #888, -6px -3px #777;
+  }
+}
+
+@keyframes skew {
+  from {
+    transform: scaleY(0.3) skewX(-15deg);
+  }
+
+  to {
+    transform: scaleY(0.3) skewX(-20deg);
+  }
+}
