@@ -1,0 +1,754 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+html,
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #151515;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.loader .section0 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(0deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
+.loader .section1 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(8deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.055s;
+}
+.loader .section2 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(16deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.11s;
+}
+.loader .section3 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(24deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.165s;
+}
+.loader .section4 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(32deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.22s;
+}
+.loader .section5 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(40deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.275s;
+}
+.loader .section6 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(48deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.33s;
+}
+.loader .section7 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(56deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.385s;
+}
+.loader .section8 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(64deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.44s;
+}
+.loader .section9 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(72deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.495s;
+}
+.loader .section10 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(80deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.55s;
+}
+.loader .section11 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(88deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.605s;
+}
+.loader .section12 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(96deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.66s;
+}
+.loader .section13 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(104deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.715s;
+}
+.loader .section14 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(112deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.77s;
+}
+.loader .section15 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(120deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.825s;
+}
+.loader .section16 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(128deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.88s;
+}
+.loader .section17 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(136deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.935s;
+}
+.loader .section18 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(144deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.99s;
+}
+.loader .section19 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(152deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.045s;
+}
+.loader .section20 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(160deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.1s;
+}
+.loader .section21 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(168deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.155s;
+}
+.loader .section22 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(176deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.21s;
+}
+.loader .section23 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(184deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.265s;
+}
+.loader .section24 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(192deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.32s;
+}
+.loader .section25 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(200deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.375s;
+}
+.loader .section26 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(208deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.43s;
+}
+.loader .section27 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(216deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.485s;
+}
+.loader .section28 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(224deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.54s;
+}
+.loader .section29 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(232deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.595s;
+}
+.loader .section30 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(240deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.65s;
+}
+.loader .section31 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(248deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.705s;
+}
+.loader .section32 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(256deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.76s;
+}
+.loader .section33 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(264deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.815s;
+}
+.loader .section34 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(272deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.87s;
+}
+.loader .section35 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(280deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.925s;
+}
+.loader .section36 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(288deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1.98s;
+}
+.loader .section37 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(296deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.035s;
+}
+.loader .section38 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(304deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.09s;
+}
+.loader .section39 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(312deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.145s;
+}
+.loader .section40 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(320deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.2s;
+}
+.loader .section41 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(328deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.255s;
+}
+.loader .section42 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(336deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.31s;
+}
+.loader .section43 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(344deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.365s;
+}
+.loader .section44 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(352deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.42s;
+}
+.loader .section45 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(360deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.475s;
+}
+.loader .section46 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(368deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.53s;
+}
+.loader .section47 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(376deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.585s;
+}
+.loader .section48 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(384deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.64s;
+}
+.loader .section49 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(392deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.695s;
+}
+.loader .section50 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(400deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.75s;
+}
+.loader .section51 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(408deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.805s;
+}
+.loader .section52 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(416deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.86s;
+}
+.loader .section53 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(424deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.915s;
+}
+.loader .section54 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(432deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 2.97s;
+}
+.loader .section55 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(440deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 3.025s;
+}
+.loader .section56 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(448deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 3.08s;
+}
+.loader .section57 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(456deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 3.135s;
+}
+.loader .section58 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(464deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 3.19s;
+}
+.loader .section59 {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 2px;
+  transform: rotate(472deg) translate(0, -45px);
+  animation: rotate 2.5s ease infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 3.245s;
+}
+
+@keyframes rotate {
+  from {
+    background-color: #a100ff;
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.075);
+  }
+}
+.holder {
+  height: 75px;
+  width: 0;
+  position: absolute;
+  animation: rotatet 8s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotatet {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.path,
+.p1,
+.p2,
+.p3,
+.p4,
+.p5,
+.p6,
+.p7 {
+  color: #fff;
+  position: absolute;
+  font-family: "Bebas Neue";
+  font-size: 24px;
+}
+
+.path {
+  font-size: 32px;
+  width: 275px;
+  height: 275px;
+  fill: #fff;
+}
+
+.p1 {
+  transform: rotate(-30deg) translate(0, -65px);
+}
+
+.p2 {
+  transform: rotate(-60deg) translate(0, -65px);
+}
+
+.p3 {
+  transform: rotate(-90deg) translate(0, -65px);
+}
+
+.p4 {
+  transform: rotate(-120deg) translate(0, -65px);
+}
+
+.p5 {
+  transform: rotate(-150deg) translate(0, -65px);
+}
+
+.p6 {
+  transform: rotate(-180deg) translate(0, -65px);
+}
+
+.p7 {
+  transform: rotate(-210deg) translate(0, -65px);
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+html,
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #151515;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @for $i from 0 through 59 {
+        .section#{$i} {
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.075);
+            border-radius: 2px;
+            transform: rotate(#{8 * $i}deg) translate(0, -45px);
+            animation: rotate 2.5s ease infinite;
+            animation-fill-mode: forwards;
+            animation-delay: #{0.055 * $i}s;
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        background-color: #a100ff;
+    }
+
+    to {
+        background-color: rgba(255, 255, 255, 0.075);
+    }
+}
+
+.holder {
+    height: 75px;
+    width: 0;
+    position: absolute;
+    animation: rotatet 8s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes rotatet {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.path,
+.p1,
+.p2,
+.p3,
+.p4,
+.p5,
+.p6,
+.p7 {
+    color: #fff;
+    position: absolute;
+    font-family: "Bebas Neue";
+    font-size: 24px;
+}
+
+.path {
+    font-size: 32px;
+    width: 275px;
+    height: 275px;
+    fill: #fff;
+}
+
+.p1 {
+    transform: rotate(-30deg) translate(0, -65px);
+}
+
+.p2 {
+    transform: rotate(-60deg) translate(0, -65px);
+}
+
+.p3 {
+    transform: rotate(-90deg) translate(0, -65px);
+}
+
+.p4 {
+    transform: rotate(-120deg) translate(0, -65px);
+}
+
+.p5 {
+    transform: rotate(-150deg) translate(0, -65px);
+}
+
+.p6 {
+    transform: rotate(-180deg) translate(0, -65px);
+}
+
+.p7 {
+    transform: rotate(-210deg) translate(0, -65px);
+}
