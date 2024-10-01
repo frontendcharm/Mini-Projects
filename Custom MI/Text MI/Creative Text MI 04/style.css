@@ -1,0 +1,53 @@
+:root {
+  --color-primary: #ffd700;
+  --color-secondary: #ff4500;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(#111, #444);
+}
+
+p {
+  font-size: 5rem;
+  margin: auto;
+  font-family: Verdana;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  -webkit-text-stroke: 2px var(--color-secondary);
+  text-shadow: 1px 1px 5px var(--color-secondary);
+  position: relative;
+  line-height: 100%;
+}
+
+.bubble {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-image: radial-gradient(var(--color-primary) 20%,
+      var(--color-secondary));
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 25px;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  animation: floatUp 1s ease-in infinite;
+}
+
+@keyframes floatUp {
+  25% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(5px);
+  }
+
+  100% {
+    bottom: 10rem;
+    opacity: 0;
+    transform: scale(0);
+    filter: blur(10px);
+  }
+}
